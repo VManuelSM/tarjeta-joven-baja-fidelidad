@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>07 · Registro Comercio — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <a href="01-catalogo-publico.html">01 Catálogo</a>
+  <a href="00-login.html">00 Login</a>
+  <span class="topnav-sep">|</span>
+  <a href="07-registro-comercio.html" class="current">07 Registro Comercio</a>
+  <a href="08-dashboard-comercio.html">08 Dashboard</a>
+  <a href="09-alta-descuento.html">09 Alta Descuento</a>
+  <span class="topnav-sep">|</span>
+  <a href="12-admin-comercios.html">12 Admin Comercios</a>
+</nav>
+
+<div class="page">
+  <div class="page-title-bar">
+    <span class="page-label">07 · Registro de comercio afiliado</span>
+  </div>
+
+  <div class="device">
+    <div class="screen">
+      <div class="sbar"></div>
+
+      <div class="navbar">
+        <a href="00-login.html" class="back-btn">←</a>
+        <span class="nav-title">Afiliar mi negocio</span>
+      </div>
+
+      <div class="content">
+
+        <!-- Steps -->
+        <div class="steps">
+          <div class="step-dot active">1</div>
+          <div class="step-line"></div>
+          <div class="step-dot">2</div>
+          <div class="step-line"></div>
+          <div class="step-dot">3</div>
+        </div>
+        <div class="flex justify-between text-xs text-muted mb-20" style="margin-top:-14px;">
+          <span style="color:var(--brand);font-weight:700;">Datos del negocio</span>
+          <span>Logo y acceso</span>
+          <span>Confirmar</span>
+        </div>
+
+        <!-- Propuesta de valor rápida -->
+        <div class="banner mb-20">
+          🏪 <strong>Beneficios de afiliarte:</strong> Visibilidad ante más de 150,000 jóvenes hidalguenses, sin costo, con respaldo institucional del IHJ.
+        </div>
+
+        <div class="fg">
+          <label class="lbl">Nombre del negocio *</label>
+          <input class="inp" placeholder="Nombre comercial como aparecerá en la plataforma" />
+        </div>
+
+        <div class="fg">
+          <label class="lbl">Categoría del negocio *</label>
+          <select class="sel">
+            <option value="">Seleccionar categoría</option>
+            <option>Alimentación y bebidas</option>
+            <option>Salud y bienestar</option>
+            <option>Educación y capacitación</option>
+            <option>Cultura y entretenimiento</option>
+            <option>Recreación y deporte</option>
+            <option>Servicios personales</option>
+            <option>Innovación y emprendimiento</option>
+          </select>
+        </div>
+
+        <div class="fg">
+          <label class="lbl">RFC *</label>
+          <input class="inp" placeholder="XXXX000000XXX" style="text-transform:uppercase;font-family:monospace;" />
+        </div>
+
+        <div class="fg">
+          <label class="lbl">Municipio donde opera *</label>
+          <select class="sel">
+            <option value="">Seleccionar municipio</option>
+            <option>Pachuca de Soto</option>
+            <option>Mineral de la Reforma</option>
+            <option>Tulancingo</option>
+            <option>Tizayuca</option>
+            <option>Actopan</option>
+            <option>Ixmiquilpan</option>
+            <option>Otro municipio del estado</option>
+          </select>
+        </div>
+
+        <div class="fg">
+          <label class="lbl">Dirección del establecimiento *</label>
+          <input class="inp" placeholder="Calle, número, colonia" />
+        </div>
+
+        <div class="divider"></div>
+        <div class="stitle mb-16" style="font-size:13px;color:var(--text-2);font-weight:600;">Datos del responsable</div>
+
+        <div class="fg">
+          <label class="lbl">Nombre del responsable *</label>
+          <input class="inp" placeholder="Nombre completo del titular o encargado" />
+        </div>
+
+        <div class="fg-row">
+          <div class="fg">
+            <label class="lbl">Teléfono *</label>
+            <input class="inp" type="tel" placeholder="771 000 0000" />
+          </div>
+          <div class="fg">
+            <label class="lbl">Correo electrónico *</label>
+            <input class="inp" type="email" placeholder="negocio@correo.com" />
+          </div>
+        </div>
+
+        <div class="banner warn mt-4 mb-20">
+          ⚠️ El IHJ revisará tu solicitud antes de publicar tu negocio en la plataforma. El proceso toma <strong>5 a 7 días hábiles</strong>.
+        </div>
+
+        <a href="08-dashboard-comercio.html" class="btn btn-primary">Continuar →</a>
+
+        <div style="text-align:center;margin-top:14px;">
+          <span class="text-sm text-muted">¿Ya tienes cuenta? </span>
+          <a href="00-login.html" style="font-size:13px;color:var(--brand);font-weight:700;text-decoration:none;">Inicia sesión</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="annot">
+    <strong>Notas UX:</strong> El registro del comercio sigue el mismo flujo de 3 pasos que el joven para consistencia.
+    La propuesta de valor está arriba para motivar la afiliación desde el primer momento.
+    El RFC es necesario para que el IHJ pueda generar el convenio formal — es un requisito real del programa.
+    Aviso claro de tiempos de revisión (5–7 días) para gestionar expectativas del comerciante.
+    <strong>Paso 2</strong> (siguiente pantalla): logo del negocio + descripción breve + contraseña.
+  </div>
+</div>
+</body>
+</html>

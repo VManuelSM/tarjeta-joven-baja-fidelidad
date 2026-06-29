@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>10 · Admin Dashboard — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background: #F0F2F5; }
+  </style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Admin IHJ (desktop):</span>
+  <a href="10-admin-dashboard.html" class="current">10 Dashboard</a>
+  <a href="11-admin-jovenes.html">11 Jóvenes</a>
+  <a href="12-admin-comercios.html">12 Comercios</a>
+  <a href="13-admin-descuentos.html">13 Descuentos</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">PWA:</span>
+  <a href="01-catalogo-publico.html">01 Catálogo</a>
+  <a href="04-perfil-joven.html">04 Joven</a>
+  <a href="08-dashboard-comercio.html">08 Comercio</a>
+</nav>
+
+<div class="admin-shell">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sb-brand">
+      <div class="sb-brand-name">Tarjeta Joven</div>
+      <div class="sb-brand-sub">Panel IHJ · Administrador</div>
+    </div>
+    <nav class="sb-nav">
+      <div class="sb-section">Principal</div>
+      <a href="10-admin-dashboard.html" class="sb-item active">
+        <div class="sb-ico"></div>
+        Dashboard
+      </a>
+      <div class="sb-section">Moderación</div>
+      <a href="11-admin-jovenes.html" class="sb-item">
+        <div class="sb-ico"></div>
+        Jóvenes
+        <span style="margin-left:auto;background:var(--warn);color:white;border-radius:10px;padding:1px 7px;font-size:11px;font-weight:700;">12</span>
+      </a>
+      <a href="12-admin-comercios.html" class="sb-item">
+        <div class="sb-ico"></div>
+        Comercios
+        <span style="margin-left:auto;background:var(--warn);color:white;border-radius:10px;padding:1px 7px;font-size:11px;font-weight:700;">4</span>
+      </a>
+      <a href="13-admin-descuentos.html" class="sb-item">
+        <div class="sb-ico"></div>
+        Descuentos
+        <span style="margin-left:auto;background:var(--warn);color:white;border-radius:10px;padding:1px 7px;font-size:11px;font-weight:700;">7</span>
+      </a>
+      <div class="sb-section" style="margin-top:8px;">Configuración</div>
+      <a href="#" class="sb-item">
+        <div class="sb-ico"></div>
+        Categorías
+      </a>
+      <a href="#" class="sb-item">
+        <div class="sb-ico"></div>
+        Administradores
+      </a>
+    </nav>
+    <div style="padding:16px 18px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(255,255,255,0.5);">
+      Ana Torres · IHJ<br>
+      <a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Cerrar sesión</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div class="admin-topbar-title">Dashboard</div>
+      <span class="text-sm text-muted">Hoy, 26 de junio 2026</span>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- Stats principales -->
+      <div style="margin-bottom:8px;font-size:12px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.6px;">Totales del programa</div>
+      <div class="admin-stats mb-24">
+        <div class="astat">
+          <div class="astat-n">1,847</div>
+          <div class="astat-l">Jóvenes registrados</div>
+          <div class="astat-sub">
+            <span class="badge b-ok" style="font-size:11px;">1,621 activos</span>
+            <span class="badge b-pend" style="font-size:11px;">226 pendientes</span>
+          </div>
+        </div>
+        <div class="astat">
+          <div class="astat-n">78</div>
+          <div class="astat-l">Comercios afiliados</div>
+          <div class="astat-sub">
+            <span class="badge b-ok" style="font-size:11px;">65 activos</span>
+            <span class="badge b-pend" style="font-size:11px;">13 pendientes</span>
+          </div>
+        </div>
+        <div class="astat">
+          <div class="astat-n">203</div>
+          <div class="astat-l">Descuentos publicados</div>
+          <div class="astat-sub">
+            <span class="badge b-ok" style="font-size:11px;">189 activos</span>
+            <span class="badge b-pend" style="font-size:11px;">14 en revisión</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pendientes de acción -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+
+        <!-- Jóvenes pendientes -->
+        <div class="atw">
+          <div class="atw-hdr">
+            <h3>Jóvenes pendientes</h3>
+            <span class="badge b-pend">12 nuevos</span>
+            <a href="11-admin-jovenes.html" style="font-size:12px;color:var(--brand);text-decoration:none;font-weight:700;">Ver todos →</a>
+          </div>
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Municipio</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="td-avatar"></span>Carlos Méndez R.
+                </td>
+                <td>Pachuca</td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn btn-xs btn-ok">✓</button>
+                    <button class="btn btn-xs btn-danger">✗</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="td-avatar"></span>Sofía Pérez M.
+                </td>
+                <td>Tulancingo</td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn btn-xs btn-ok">✓</button>
+                    <button class="btn btn-xs btn-danger">✗</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="td-avatar"></span>Diego Torres A.
+                </td>
+                <td>Tizayuca</td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn btn-xs btn-ok">✓</button>
+                    <button class="btn btn-xs btn-danger">✗</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Comercios pendientes -->
+        <div class="atw">
+          <div class="atw-hdr">
+            <h3>Comercios pendientes</h3>
+            <span class="badge b-pend">4 nuevos</span>
+            <a href="12-admin-comercios.html" style="font-size:12px;color:var(--brand);text-decoration:none;font-weight:700;">Ver todos →</a>
+          </div>
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>Negocio</th>
+                <th>Categoría</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Café 501</td>
+                <td>Alimentación</td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn btn-xs btn-ok">✓</button>
+                    <button class="btn btn-xs btn-danger">✗</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>GymFit Pachuca</td>
+                <td>Salud</td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn btn-xs btn-ok">✓</button>
+                    <button class="btn btn-xs btn-danger">✗</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Idiomas Plus</td>
+                <td>Educación</td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn btn-xs btn-ok">✓</button>
+                    <button class="btn btn-xs btn-danger">✗</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Descuentos pendientes -->
+        <div class="atw">
+          <div class="atw-hdr">
+            <h3>Descuentos pendientes</h3>
+            <span class="badge b-pend">7 en cola</span>
+            <a href="13-admin-descuentos.html" style="font-size:12px;color:var(--brand);text-decoration:none;font-weight:700;">Ver todos →</a>
+          </div>
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>Comercio · Descuento</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="font-weight:600;font-size:13px;">Farmacia San Rafael</div>
+                  <div class="text-xs text-muted">15% en artículos de higiene</div>
+                </td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn btn-xs btn-ok">✓</button>
+                    <button class="btn btn-xs btn-danger">✗</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="font-weight:600;font-size:13px;">Librería El Estudiante</div>
+                  <div class="text-xs text-muted">20% en papelería</div>
+                </td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn btn-xs btn-ok">✓</button>
+                    <button class="btn btn-xs btn-danger">✗</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div style="font-weight:600;font-size:13px;">Café 501</div>
+                  <div class="text-xs text-muted">2×1 bebidas calientes</div>
+                </td>
+                <td>
+                  <div class="td-actions">
+                    <button class="btn btn-xs btn-ok">✓</button>
+                    <button class="btn btn-xs btn-danger">✗</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>

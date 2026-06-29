@@ -1,1663 +1,218 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarjeta Joven Hidalgo — Instituto Hidalguense de la Juventud</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
-<style>
-/* ── RESET & BASE ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --guinda:        #691B31;
-  --guinda-2:      #A02142;
-  --guinda-dark:   #3E0D1C;
-  --guinda-light:  #F7EEF1;
-  --dorado:        #BC955B;
-  --dorado-light:  #DDC9A3;
-  --dorado-bg:     #FAF6EF;
-  --gray-100:      #F5F4F2;
-  --gray-200:      #E8E6E1;
-  --gray-400:      #9B9894;
-  --gray-600:      #6B6967;
-  --gray-800:      #2C2A28;
-  --white:         #FFFFFF;
-  --black:         #1A1210;
-  --radius-sm:     8px;
-  --radius-md:     12px;
-  --radius-lg:     18px;
-  --radius-xl:     24px;
-  --radius-pill:   999px;
-  --shadow-sm:     0 1px 4px rgba(105,27,49,.08);
-  --shadow-md:     0 4px 20px rgba(105,27,49,.12);
-  --shadow-lg:     0 12px 48px rgba(105,27,49,.15);
-  --max-w:         1100px;
-  --font:          'Montserrat', sans-serif;
-}
-html { scroll-behavior: smooth; }
-body { font-family: var(--font); color: var(--black); background: var(--white); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { text-decoration: none; color: inherit; }
-button { font-family: var(--font); cursor: pointer; }
-
-/* ── UTILITIES ── */
-.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
-.section { padding: 96px 0; }
-.section-sm { padding: 64px 0; }
-.text-center { text-align: center; }
-.label-tag {
-  display: inline-block;
-  font-size: 11px; font-weight: 800; letter-spacing: 2.5px;
-  text-transform: uppercase; color: var(--guinda-2);
-  margin-bottom: 12px;
-}
-.section-title {
-  font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.1;
-  color: var(--black); letter-spacing: -0.5px;
-}
-.section-sub {
-  font-size: 16px; font-weight: 500; color: var(--gray-600);
-  max-width: 560px; margin: 16px auto 0; line-height: 1.7;
-}
-/* BUTTONS */
-.btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 28px; border-radius: var(--radius-pill); border: none;
-  font-family: var(--font); font-size: 14px; font-weight: 800;
-  transition: all .22s; letter-spacing: 0.3px; white-space: nowrap;
-}
-.btn-primary { background: var(--guinda); color: var(--white); }
-.btn-primary:hover { background: var(--guinda-2); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.btn-secondary { background: transparent; color: var(--guinda); border: 2px solid var(--guinda); }
-.btn-secondary:hover { background: var(--guinda-light); transform: translateY(-2px); }
-.btn-gold { background: var(--dorado); color: var(--guinda-dark); }
-.btn-gold:hover { background: var(--dorado-light); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.btn-white { background: var(--white); color: var(--guinda); }
-.btn-white:hover { background: var(--dorado-bg); transform: translateY(-2px); }
-.btn-outline-white { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.45); }
-.btn-outline-white:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.7); }
-
-/* ══════════════════════════════════════════
-   1. NAV
-══════════════════════════════════════════ */
-.navbar {
-  position: sticky; top: 0; z-index: 200;
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-200);
-  padding: 0 24px;
-}
-.nav-inner {
-  max-width: var(--max-w); margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 68px; gap: 24px;
-}
-.nav-logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.nav-logo-icon {
-  width: 38px; height: 38px; background: var(--guinda); border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-}
-.nav-logo-icon svg { width: 22px; height: 22px; }
-.nav-logo-text strong { display: block; font-size: 15px; font-weight: 900; color: var(--guinda); line-height: 1.1; }
-.nav-logo-text span { font-size: 10px; font-weight: 500; color: var(--gray-400); }
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a { font-size: 13px; font-weight: 600; color: var(--gray-600); transition: color .2s; }
-.nav-links a:hover { color: var(--guinda); }
-.nav-ctas { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
-.btn-nav-outline {
-  padding: 8px 18px; border-radius: var(--radius-pill); border: 1.5px solid var(--gray-200);
-  background: transparent; color: var(--gray-800); font-size: 13px; font-weight: 700;
-  transition: all .2s; font-family: var(--font);
-}
-.btn-nav-outline:hover { border-color: var(--guinda); color: var(--guinda); }
-.btn-nav-solid {
-  padding: 9px 20px; border-radius: var(--radius-pill); border: none;
-  background: var(--guinda); color: var(--white); font-size: 13px; font-weight: 800;
-  transition: all .2s; font-family: var(--font);
-}
-.btn-nav-solid:hover { background: var(--guinda-2); transform: translateY(-1px); }
-
-/* ══════════════════════════════════════════
-   2. HERO
-══════════════════════════════════════════ */
-.hero {
-  background: var(--guinda);
-  padding: 80px 24px 80px;
-  position: relative; overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute; top: -120px; right: -120px;
-  width: 480px; height: 480px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(188,149,91,.18) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute; bottom: -80px; left: -80px;
-  width: 320px; height: 320px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(221,201,163,.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero-inner {
-  max-width: var(--max-w); margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
-}
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(221,201,163,.12); border: 1px solid rgba(221,201,163,.3);
-  border-radius: var(--radius-pill); padding: 6px 16px;
-  font-size: 11px; font-weight: 700; color: var(--dorado-light);
-  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px;
-}
-.pulse { width: 7px; height: 7px; background: var(--dorado); border-radius: 50%; animation: pulse 1.6s infinite; }
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.5)} }
-.hero h1 {
-  font-size: clamp(32px, 5vw, 58px); font-weight: 900; line-height: 1.05;
-  color: var(--white); letter-spacing: -1px; margin-bottom: 20px;
-}
-.hero h1 .gold { color: var(--dorado); }
-.hero-sub {
-  font-size: 16px; color: rgba(255,255,255,.7); line-height: 1.7;
-  font-weight: 500; margin-bottom: 36px; max-width: 460px;
-}
-.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-.hero-visual {
-  position: relative; display: flex; align-items: center; justify-content: center;
-}
-.hero-card-mock {
-  background: rgba(255,255,255,.08); backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,.15); border-radius: var(--radius-xl);
-  padding: 32px; width: 100%; max-width: 380px;
-  position: relative; z-index: 1;
-}
-.mock-card-top {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 28px;
-}
-.mock-chip {
-  width: 36px; height: 28px; background: var(--dorado); border-radius: 6px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 2px; padding: 4px;
-}
-.mock-chip div { background: rgba(105,27,49,.3); border-radius: 1px; }
-.mock-card-logo { font-size: 11px; font-weight: 900; color: var(--dorado-light); letter-spacing: 1px; }
-.mock-card-num { font-size: 18px; font-weight: 700; color: var(--white); letter-spacing: 4px; margin-bottom: 20px; font-variant-numeric: tabular-nums; }
-.mock-card-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
-.mock-card-name { font-size: 13px; font-weight: 700; color: var(--dorado-light); }
-.mock-card-valid { font-size: 10px; color: rgba(255,255,255,.5); font-weight: 600; }
-.mock-qr {
-  margin-top: 24px; background: white; border-radius: var(--radius-md);
-  padding: 12px; display: flex; flex-direction: column; align-items: center; gap: 8px;
-}
-.qr-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; width: 80px; height: 80px; }
-.qr-cell { border-radius: 1px; }
-.qr-b { background: #1a1210; }
-.qr-w { background: white; }
-.mock-qr-label { font-size: 9px; font-weight: 700; color: var(--guinda); letter-spacing: 1.5px; text-transform: uppercase; }
-/* floating badges */
-.float-badge {
-  position: absolute; background: white; border-radius: var(--radius-md);
-  padding: 10px 14px; box-shadow: var(--shadow-lg);
-  display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700;
-  color: var(--black); z-index: 2;
-  animation: float 3s ease-in-out infinite;
-}
-.float-badge .fb-icon { font-size: 18px; }
-.float-badge-1 { top: -16px; left: -24px; animation-delay: 0s; }
-.float-badge-2 { bottom: -16px; right: -20px; animation-delay: 1.5s; }
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-
-/* proof strip */
-.hero-proof {
-  margin-top: 32px;
-  display: flex; flex-wrap: wrap; gap: 8px 20px;
-}
-.proof-item { font-size: 12px; font-weight: 600; color: rgba(221,201,163,.65); display: flex; align-items: center; gap: 6px; }
-.proof-item::before { content: '✓'; color: var(--dorado); font-weight: 900; }
-
-/* ══════════════════════════════════════════
-   3. TOOLS / BENEFICIOS
-══════════════════════════════════════════ */
-.benefits-section { background: var(--white); }
-.benefits-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-  margin-top: 56px;
-}
-.benefit-card {
-  padding: 28px 24px; border-radius: var(--radius-lg);
-  border: 1.5px solid var(--gray-200);
-  transition: all .22s; text-align: center;
-}
-.benefit-card:hover { border-color: var(--guinda); transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.benefit-icon {
-  width: 56px; height: 56px; border-radius: var(--radius-md);
-  background: var(--guinda-light); margin: 0 auto 16px;
-  display: flex; align-items: center; justify-content: center; font-size: 26px;
-}
-.benefit-card h3 { font-size: 14px; font-weight: 800; margin-bottom: 8px; color: var(--black); }
-.benefit-card p { font-size: 13px; color: var(--gray-600); line-height: 1.6; font-weight: 500; }
-.benefits-cta { text-align: center; margin-top: 48px; }
-
-/* ══════════════════════════════════════════
-   4. SOCIAL PROOF / RESPALDO
-══════════════════════════════════════════ */
-.trust-section { background: var(--gray-100); }
-.trust-text { max-width: 660px; margin: 0 auto; text-align: center; }
-.trust-body { font-size: 15px; color: var(--gray-600); line-height: 1.75; margin-top: 20px; font-weight: 500; }
-.logos-strip {
-  display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap; gap: 12px 32px; margin-top: 48px;
-}
-.logo-pill {
-  background: var(--white); border: 1.5px solid var(--gray-200);
-  border-radius: var(--radius-pill); padding: 10px 22px;
-  font-size: 12px; font-weight: 800; color: var(--guinda);
-  letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px;
-  transition: all .2s;
-}
-.logo-pill:hover { border-color: var(--guinda); box-shadow: var(--shadow-sm); }
-.logo-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--dorado); }
-
-/* ══════════════════════════════════════════
-   5. CAPTION / POR QUÉ UNIRTE
-══════════════════════════════════════════ */
-.why-section { background: var(--white); }
-.why-inner {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
-}
-.why-col h3 { font-size: 22px; font-weight: 900; margin-bottom: 24px; line-height: 1.2; }
-.why-col h3 .tag {
-  display: inline-block; background: var(--guinda-light); color: var(--guinda);
-  border-radius: var(--radius-pill); padding: 4px 12px; font-size: 11px;
-  font-weight: 800; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase;
-}
-.why-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-.why-list li {
-  display: flex; gap: 14px; align-items: flex-start;
-  padding: 16px; border-radius: var(--radius-md);
-  border: 1px solid var(--gray-200); transition: border-color .2s;
-}
-.why-list li:hover { border-color: var(--guinda); }
-.why-icon {
-  width: 36px; height: 36px; border-radius: var(--radius-sm);
-  background: var(--guinda); color: white;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px; flex-shrink: 0;
-}
-.why-col.negocio .why-icon { background: var(--guinda-dark); }
-.why-text strong { display: block; font-size: 13px; font-weight: 800; margin-bottom: 3px; }
-.why-text span { font-size: 12px; color: var(--gray-600); line-height: 1.5; font-weight: 500; }
-.why-col-cta { margin-top: 28px; }
-.why-divider {
-  width: 1px; background: var(--gray-200); position: relative;
-  display: flex; align-items: center; justify-content: center;
-}
-.why-divider-dot {
-  width: 32px; height: 32px; border-radius: 50%; background: var(--white);
-  border: 2px solid var(--gray-200); display: flex; align-items: center;
-  justify-content: center; font-size: 12px; color: var(--gray-400); font-weight: 700;
-}
-
-/* ══════════════════════════════════════════
-   6. TESTIMONIOS
-══════════════════════════════════════════ */
-.testimonials-section { background: var(--gray-100); }
-.testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
-.testimonial-card {
-  background: var(--white); border-radius: var(--radius-lg);
-  padding: 32px; border: 1.5px solid var(--gray-200);
-  transition: all .22s;
-}
-.testimonial-card:hover { border-color: var(--guinda-2); box-shadow: var(--shadow-md); transform: translateY(-3px); }
-.test-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-.test-avatar {
-  width: 44px; height: 44px; border-radius: 50%;
-  background: var(--guinda-light); display: flex; align-items: center;
-  justify-content: center; font-size: 18px; font-weight: 900; color: var(--guinda);
-  flex-shrink: 0;
-}
-.test-source strong { display: block; font-size: 13px; font-weight: 800; color: var(--black); }
-.test-source span { font-size: 11px; color: var(--gray-400); font-weight: 600; }
-.test-stars { color: var(--dorado); font-size: 13px; margin-bottom: 12px; }
-.testimonial-card blockquote {
-  font-size: 14px; line-height: 1.75; color: var(--gray-600);
-  font-weight: 500; font-style: italic;
-}
-.testimonial-card blockquote::before { content: '"'; font-size: 32px; color: var(--guinda-light); font-style: normal; line-height: 0; vertical-align: -12px; margin-right: 4px; }
-.test-author { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--gray-200); display: flex; justify-content: space-between; align-items: center; }
-.test-author-name { font-size: 13px; font-weight: 800; }
-.test-author-role { font-size: 11px; color: var(--gray-400); font-weight: 600; }
-.test-badge { font-size: 10px; font-weight: 800; color: var(--guinda-2); background: var(--guinda-light); padding: 4px 10px; border-radius: var(--radius-pill); }
-
-/* ══════════════════════════════════════════
-   7. MUNICIPIOS (adaptado de "From Our Blog")
-══════════════════════════════════════════ */
-.municipios-section { background: var(--white); }
-.municipios-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 56px; }
-.municipio-card {
-  border-radius: var(--radius-lg); overflow: hidden;
-  border: 1.5px solid var(--gray-200); transition: all .22s;
-}
-.municipio-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--guinda); }
-.municipio-img {
-  height: 140px; background: var(--guinda);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 48px; position: relative; overflow: hidden;
-}
-.municipio-img::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(105,27,49,.6) 0%, rgba(62,13,28,.8) 100%);
-}
-.municipio-img-emoji { position: relative; z-index: 1; }
-.municipio-tag {
-  display: inline-block; font-size: 10px; font-weight: 800;
-  background: var(--dorado); color: var(--guinda-dark);
-  padding: 3px 10px; border-radius: var(--radius-pill);
-  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
-}
-.municipio-body { padding: 16px; }
-.municipio-body h4 { font-size: 14px; font-weight: 900; margin-bottom: 6px; }
-.municipio-body p { font-size: 12px; color: var(--gray-600); line-height: 1.5; font-weight: 500; margin-bottom: 12px; }
-.municipio-meta { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--gray-400); font-weight: 600; }
-.municipio-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--dorado); }
-.municipios-cta { text-align: center; margin-top: 48px; }
-
-/* ══════════════════════════════════════════
-   8. PRE-REGISTRO (adaptado de "Pricing")
-══════════════════════════════════════════ */
-.registro-section { background: var(--gray-100); }
-.registro-inner { max-width: 680px; margin: 0 auto; }
-.tab-toggle {
-  display: flex; background: var(--white); border-radius: var(--radius-pill);
-  padding: 5px; border: 1.5px solid var(--gray-200);
-  margin: 48px auto 0; width: fit-content; gap: 4px;
-}
-.tab-toggle button {
-  padding: 9px 28px; border-radius: var(--radius-pill); border: none;
-  font-size: 13px; font-weight: 700; transition: all .22s;
-  color: var(--gray-600); background: transparent; font-family: var(--font);
-}
-.tab-toggle button.active { background: var(--guinda); color: var(--white); }
-.registro-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; }
-.reg-card {
-  background: var(--white); border-radius: var(--radius-xl);
-  border: 1.5px solid var(--gray-200); padding: 32px 28px;
-  transition: all .22s;
-}
-.reg-card.featured { border-color: var(--guinda); box-shadow: var(--shadow-lg); }
-.reg-featured-badge {
-  display: inline-block; background: var(--guinda); color: white;
-  font-size: 10px; font-weight: 800; padding: 4px 14px;
-  border-radius: var(--radius-pill); margin-bottom: 16px;
-  letter-spacing: 1px; text-transform: uppercase;
-}
-.reg-card h3 { font-size: 20px; font-weight: 900; margin-bottom: 4px; color: var(--guinda); }
-.reg-card .reg-desc { font-size: 12px; color: var(--gray-400); font-weight: 600; margin-bottom: 28px; }
-/* form fields */
-.fgroup { margin-bottom: 14px; }
-.fgroup label { display: block; font-size: 10px; font-weight: 800; color: var(--gray-600); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
-.fgroup input, .fgroup select {
-  width: 100%; padding: 11px 14px;
-  border: 1.5px solid var(--gray-200); border-radius: var(--radius-md);
-  font-family: var(--font); font-size: 13px; font-weight: 500;
-  color: var(--black); background: var(--white); outline: none;
-  transition: border-color .2s; -webkit-appearance: none; appearance: none;
-}
-.fgroup input:focus, .fgroup select:focus { border-color: var(--guinda); box-shadow: 0 0 0 3px rgba(105,27,49,.07); }
-.fgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.btn-submit {
-  width: 100%; padding: 14px; border: none; border-radius: var(--radius-pill);
-  font-family: var(--font); font-size: 13px; font-weight: 900;
-  transition: all .25s; margin-top: 6px; letter-spacing: 0.3px;
-}
-.btn-submit-guinda { background: var(--guinda); color: white; }
-.btn-submit-guinda:hover { background: var(--guinda-2); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.btn-submit-gold { background: var(--dorado); color: var(--guinda-dark); }
-.btn-submit-gold:hover { background: var(--dorado-light); transform: translateY(-2px); }
-.reg-privacy { font-size: 11px; color: var(--gray-400); text-align: center; margin-top: 14px; line-height: 1.5; font-weight: 500; }
-/* success */
-.success-box { display: none; text-align: center; padding: 2rem 1.5rem; background: var(--guinda-light); border-radius: var(--radius-lg); border: 1.5px solid rgba(105,27,49,.2); }
-.success-icon { font-size: 40px; margin-bottom: 12px; }
-.success-box h4 { font-size: 1.1rem; font-weight: 900; color: var(--guinda); margin-bottom: 6px; }
-.success-box p { font-size: 13px; color: var(--gray-600); font-weight: 500; }
-
-/* ══════════════════════════════════════════
-   9. FAQ
-══════════════════════════════════════════ */
-.faq-section { background: var(--white); }
-.faq-inner { max-width: 700px; margin: 0 auto; }
-.faq-list { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; }
-.faq-item {
-  border: 1.5px solid var(--gray-200); border-radius: var(--radius-md);
-  overflow: hidden; transition: border-color .2s;
-}
-.faq-item.open { border-color: var(--guinda); }
-.faq-question {
-  width: 100%; display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 22px; background: none; border: none;
-  font-family: var(--font); font-size: 14px; font-weight: 700; color: var(--black);
-  cursor: pointer; text-align: left; gap: 16px;
-}
-.faq-icon {
-  width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--gray-200);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  font-size: 16px; color: var(--guinda); transition: all .22s;
-}
-.faq-item.open .faq-icon { background: var(--guinda); color: white; border-color: var(--guinda); transform: rotate(45deg); }
-.faq-answer {
-  max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s ease;
-  padding: 0 22px; font-size: 14px; color: var(--gray-600); line-height: 1.7; font-weight: 500;
-}
-.faq-item.open .faq-answer { max-height: 200px; padding: 0 22px 18px; }
-
-/* ══════════════════════════════════════════
-   10. CTA FINAL
-══════════════════════════════════════════ */
-.cta-final { background: var(--guinda); padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
-.cta-final::before {
-  content: '';
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  width: 600px; height: 600px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(188,149,91,.12) 0%, transparent 60%);
-  pointer-events: none;
-}
-.cta-final h2 { font-size: clamp(28px,4vw,48px); font-weight: 900; color: var(--white); margin-bottom: 16px; letter-spacing: -0.5px; }
-.cta-final h2 span { color: var(--dorado); }
-.cta-final p { font-size: 16px; color: rgba(255,255,255,.65); font-weight: 500; margin-bottom: 40px; }
-.cta-final-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-
-/* ══════════════════════════════════════════
-   FOOTER
-══════════════════════════════════════════ */
-footer { background: var(--guinda-dark); padding: 64px 24px 32px; }
-.footer-inner { max-width: var(--max-w); margin: 0 auto; }
-.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08); }
-.footer-brand strong { display: block; font-size: 16px; font-weight: 900; color: var(--dorado-light); margin-bottom: 8px; }
-.footer-brand p { font-size: 12px; color: rgba(221,201,163,.45); line-height: 1.6; font-weight: 500; }
-.footer-newsletter { margin-top: 20px; display: flex; gap: 8px; }
-.footer-newsletter input {
-  flex: 1; padding: 10px 14px; border-radius: var(--radius-pill);
-  border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.07);
-  color: white; font-family: var(--font); font-size: 12px; outline: none;
-}
-.footer-newsletter input::placeholder { color: rgba(255,255,255,.3); }
-.footer-newsletter button {
-  padding: 10px 18px; border-radius: var(--radius-pill); border: none;
-  background: var(--dorado); color: var(--guinda-dark);
-  font-size: 12px; font-weight: 800; font-family: var(--font); transition: all .2s;
-}
-.footer-newsletter button:hover { background: var(--dorado-light); }
-.footer-col h5 { font-size: 12px; font-weight: 800; color: var(--dorado-light); margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; }
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col ul li a { font-size: 13px; color: rgba(221,201,163,.45); font-weight: 500; transition: color .2s; }
-.footer-col ul li a:hover { color: var(--dorado-light); }
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 32px; flex-wrap: wrap; gap: 16px; }
-.footer-copy { font-size: 12px; color: rgba(221,201,163,.3); font-weight: 500; }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { font-size: 12px; color: rgba(221,201,163,.3); font-weight: 600; transition: color .2s; }
-.footer-links a:hover { color: rgba(221,201,163,.6); }
-
-/* ══════════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════════ */
-@media(max-width:900px){
-  .hero-inner { grid-template-columns: 1fr; text-align: center; }
-  .hero-sub { margin-left: auto; margin-right: auto; }
-  .hero-ctas { justify-content: center; }
-  .hero-proof { justify-content: center; }
-  .hero-visual { display: none; }
-  .benefits-grid { grid-template-columns: repeat(2,1fr); }
-  .why-inner { grid-template-columns: 1fr; gap: 40px; }
-  .why-divider { display: none; }
-  .testimonials-grid { grid-template-columns: 1fr; }
-  .municipios-grid { grid-template-columns: repeat(2,1fr); }
-  .registro-cards { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
-  .nav-links { display: none; }
-}
-@media(max-width:640px){
-  .benefits-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .municipios-grid { grid-template-columns: 1fr 1fr; }
-  .fgrid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; }
-  .nav-ctas .btn-nav-outline { display: none; }
-}
-
-/* ── ANIMATIONS ── */
-.fade-up { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-
-/* ══════════════════════════════════════════
-   MODAL OVERLAY
-══════════════════════════════════════════ */
-#modal-overlay {
-  display: none; position: fixed; inset: 0;
-  background: rgba(62,13,28,0.75); z-index: 900;
-  overflow-y: auto; padding: 32px 16px;
-  -webkit-overflow-scrolling: touch;
-}
-.modal-wrap {
-  max-width: 580px; margin: 0 auto; position: relative;
-}
-.modal-close {
-  position: absolute; top: -10px; right: 0;
-  width: 36px; height: 36px; border-radius: 50%;
-  border: none; background: rgba(255,255,255,.15);
-  color: white; font-size: 20px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font); z-index: 10; transition: background .2s;
-  line-height: 1;
-}
-.modal-close:hover { background: rgba(255,255,255,.28); }
-.modal-nav {
-  background: var(--guinda); border-radius: 18px 18px 0 0;
-  padding: 14px 24px; display: flex; align-items: center; justify-content: space-between;
-}
-.modal-nav-logo { display: flex; align-items: center; gap: 10px; }
-.modal-nav-logo span { font-size: 13px; font-weight: 800; color: var(--dorado-light); }
-.modal-step-badge {
-  font-size: 10px; font-weight: 800; color: var(--dorado);
-  background: rgba(188,149,91,.15); border: 1px solid rgba(188,149,91,.3);
-  border-radius: var(--radius-pill); padding: 4px 12px;
-  letter-spacing: 1px; text-transform: uppercase;
-}
-.modal-body {
-  background: white; border-radius: 0 0 18px 18px; padding: 32px 28px;
-}
-.modal-progress-bar { height: 4px; background: var(--gray-200); border-radius: 2px; margin-bottom: 28px; }
-.modal-progress-fill {
-  height: 100%; background: var(--guinda); border-radius: 2px; transition: width .4s ease;
-}
-.modal-screen { display: none; }
-
-/* ── INSTRUMENTO: BLOQUES Y PILLS ── */
-.inst-block { margin-bottom: 20px; }
-.inst-q {
-  display: flex; align-items: flex-start; gap: 10px;
-  font-size: 14px; font-weight: 700; color: var(--black);
-  margin-bottom: 12px; line-height: 1.4;
-}
-.inst-num {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: var(--guinda); color: white;
-  font-size: 11px; font-weight: 800; display: flex;
-  align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
-}
-.inst-divider { height: 1px; background: var(--gray-200); margin: 20px 0; }
-.pill-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
-.ipill {
-  padding: 8px 16px; border-radius: var(--radius-pill);
-  border: 1.5px solid var(--gray-200); background: white;
-  font-size: 12px; font-weight: 600; color: var(--gray-600);
-  cursor: pointer; transition: all .18s; font-family: var(--font);
-}
-.ipill:hover { border-color: var(--guinda); color: var(--guinda); }
-.ipill.ipill-sel { background: var(--guinda); color: white; border-color: var(--guinda); }
-.ipill-gold { border-color: var(--gray-200); }
-.ipill-gold:hover { border-color: var(--dorado); color: var(--guinda-dark); }
-.ipill-gold.ipill-sel { background: var(--dorado); color: var(--guinda-dark); border-color: var(--dorado); }
-.iscale {
-  flex: 1; padding: 9px 4px; border-radius: var(--radius-sm);
-  border: 1.5px solid var(--gray-200); background: white;
-  font-size: 12px; font-weight: 700; color: var(--gray-600);
-  cursor: pointer; transition: all .18s; text-align: center;
-  font-family: var(--font);
-}
-.iscale:hover { border-color: var(--dorado); color: var(--guinda-dark); }
-.iscale.iscale-sel { background: var(--dorado); color: var(--guinda-dark); border-color: var(--dorado); }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarjeta Joven · Wireframe Kit</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .kit-hero { background: var(--brand); color: white; padding: 32px 24px; text-align: center; }
+    .kit-hero h1 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+    .kit-hero p { font-size: 14px; opacity: .8; }
+    .kit-body { max-width: 860px; margin: 32px auto; padding: 0 20px; }
+    .kit-section { margin-bottom: 32px; }
+    .kit-section h2 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: .8px; color: var(--text-3); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+    .screens-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .screen-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-decoration: none; color: var(--text); display: flex; align-items: flex-start; gap: 12px; }
+    .screen-card:hover { border-color: var(--brand); background: #F5F8FF; }
+    .sc-num { width: 32px; height: 32px; background: var(--brand); color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+    .sc-num.pub { background: #555; }
+    .sc-num.jov { background: var(--brand); }
+    .sc-num.biz { background: var(--brand2); }
+    .sc-num.adm { background: #2E4D2E; }
+    .sc-name { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+    .sc-desc { font-size: 11px; color: var(--text-3); line-height: 1.4; }
+    .flow-box { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; }
+    .flow-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+    .flow-row:last-child { margin-bottom: 0; }
+    .flow-label { font-size: 11px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: .5px; min-width: 80px; }
+    .flow-node { background: white; border: 1.5px solid var(--border); border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; color: var(--text); text-decoration: none; white-space: nowrap; }
+    .flow-node:hover { border-color: var(--brand); color: var(--brand); }
+    .flow-node.pub { border-color: #999; }
+    .flow-node.jov { border-color: var(--brand); color: var(--brand); }
+    .flow-node.biz { border-color: var(--brand2); color: var(--brand2); }
+    .flow-node.adm { border-color: #2E4D2E; color: #2E4D2E; }
+    .flow-arr { color: var(--text-3); font-size: 16px; }
+    .legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+    .leg-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-2); }
+    .leg-dot { width: 12px; height: 12px; border-radius: 3px; }
+  </style>
 </head>
-<body>
+<body style="background: #E8E8E8;">
 
-<!-- ══ NAV ══ -->
-<nav class="navbar">
-  <div class="nav-inner">
-    <div class="nav-logo">
-      <div class="nav-logo-icon">
-        <svg viewBox="0 0 22 22" fill="none">
-          <polygon points="11,1 13.5,8.5 21,8.5 15,13 17.5,20.5 11,16 4.5,20.5 7,13 1,8.5 8.5,8.5" fill="#DDC9A3"/>
-        </svg>
-      </div>
-      <div class="nav-logo-text">
-        <strong>Tarjeta Joven</strong>
-        <span>Instituto Hidalguense de la Juventud</span>
-      </div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#beneficios">Beneficios</a></li>
-      <li><a href="#negocios">Negocios</a></li>
-      <li><a href="#como-funciona">¿Cómo funciona?</a></li>
-      <li><a href="#municipios">Municipios</a></li>
-    </ul>
-    <div class="nav-ctas">
-      <button class="btn-nav-outline" onclick="openModal('negocio')">Afiliar negocio</button>
-      <button class="btn-nav-solid" onclick="openModal('joven')">Quiero mi tarjeta</button>
-    </div>
-  </div>
+<nav class="topnav">
+  <span class="topnav-label">Tarjeta Joven · Wireframe</span>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Público:</span>
+  <a href="01-catalogo-publico.html">01 Catálogo</a>
+  <a href="00-login.html">00 Login</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Joven:</span>
+  <a href="02-registro-joven.html">02 Registro</a>
+  <a href="03-pendiente.html">03 Pendiente</a>
+  <a href="04-perfil-joven.html">04 Perfil</a>
+  <a href="05-catalogo-auth.html">05 Catálogo Auth</a>
+  <a href="06-detalle-descuento.html">06 Detalle</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Comercio:</span>
+  <a href="07-registro-comercio.html">07 Registro</a>
+  <a href="08-dashboard-comercio.html">08 Dashboard</a>
+  <a href="09-alta-descuento.html">09 Alta Descuento</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Admin IHJ:</span>
+  <a href="10-admin-dashboard.html">10 Dashboard</a>
+  <a href="11-admin-jovenes.html">11 Jóvenes</a>
+  <a href="12-admin-comercios.html">12 Comercios</a>
+  <a href="13-admin-descuentos.html">13 Descuentos</a>
 </nav>
 
-<!-- ══ HERO ══ -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-badge"><div class="pulse"></div>Registro abierto · Hidalgo 2026</div>
-      <h1>Tus beneficios.<br><span class="gold">Un solo lugar.</span><br>Tu tarjeta.</h1>
-      <p class="hero-sub">Descuentos en salud, educación, alimentación y más — para jóvenes hidalguenses de 12 a 29 años. Gratis y 100% digital.</p>
-      <div class="hero-ctas">
-        <button class="btn btn-gold" onclick="openModal('joven')">Quiero mi tarjeta</button>
-        <button class="btn btn-outline-white" onclick="openModal('negocio')">Soy un negocio</button>
-      </div>
-      <div class="hero-proof">
-        <span class="proof-item">100% gratuito</span>
-        <span class="proof-item">Tarjeta digital inmediata</span>
-        <span class="proof-item">Válido en todo Hidalgo</span>
-        <span class="proof-item">Respaldo oficial IHJ</span>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="float-badge float-badge-1"><span class="fb-icon">🎉</span><span>¡Tarjeta activada!</span></div>
-      <div class="hero-card-mock">
-        <div class="mock-card-top">
-          <div class="mock-chip"><div></div><div></div><div></div><div></div></div>
-          <div class="mock-card-logo">TARJETA JOVEN</div>
-        </div>
-        <div class="mock-card-num">•••• •••• •••• 2026</div>
-        <div class="mock-card-bottom">
-          <div>
-            <div class="mock-card-name">JOVEN HIDALGUENSE</div>
-            <div class="mock-card-valid">VÁLIDA HASTA 12/26</div>
-          </div>
-          <svg width="32" height="32" viewBox="0 0 32 32"><circle cx="12" cy="16" r="10" fill="rgba(188,149,91,.5)"/><circle cx="20" cy="16" r="10" fill="rgba(221,201,163,.5)"/></svg>
-        </div>
-        <div class="mock-qr">
-          <div class="qr-grid">
-            <div class="qr-b"></div><div class="qr-b"></div><div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div><div class="qr-b"></div><div class="qr-b"></div>
-            <div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div><div class="qr-b"></div><div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div>
-            <div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div>
-            <div class="qr-w"></div><div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div><div class="qr-w"></div>
-            <div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div>
-            <div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div><div class="qr-b"></div><div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div>
-            <div class="qr-b"></div><div class="qr-b"></div><div class="qr-b"></div><div class="qr-w"></div><div class="qr-b"></div><div class="qr-b"></div><div class="qr-b"></div>
-          </div>
-          <div class="mock-qr-label">Escanea para verificar</div>
-        </div>
-      </div>
-      <div class="float-badge float-badge-2"><span class="fb-icon">🏪</span><span>50+ negocios afiliados</span></div>
-    </div>
-  </div>
-</section>
+<div class="kit-hero">
+  <h1>Tarjeta Joven Hidalgo · Wireframe MVP</h1>
+  <p>PWA · Mobile First · 3 flujos de usuario + backoffice IHJ · 14 pantallas</p>
+</div>
 
-<!-- ══ BENEFICIOS ══ -->
-<section class="section benefits-section" id="beneficios">
-  <div class="container text-center fade-up">
-    <div class="label-tag">Lo que obtienes</div>
-    <h2 class="section-title">Todo lo que necesitas, en una sola tarjeta.</h2>
-    <p class="section-sub">Seis categorías de beneficios reales para tu día a día en Hidalgo.</p>
-  </div>
-  <div class="container">
-    <div class="benefits-grid fade-up">
-      <div class="benefit-card">
-        <div class="benefit-icon">🍽️</div>
-        <h3>Alimentación</h3>
-        <p>Restaurantes, fondas y tiendas con descuento especial para ti.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">🏥</div>
-        <h3>Salud</h3>
-        <p>Farmacias, ópticas y consultorios médicos afiliados al programa.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">📚</div>
-        <h3>Educación</h3>
-        <p>Cursos, librerías y plataformas de aprendizaje con precio preferencial.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">🎭</div>
-        <h3>Cultura y recreación</h3>
-        <p>Museos, cines, deportes y eventos culturales en tu municipio.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">💼</div>
-        <h3>Empleo</h3>
-        <p>Vinculación con empresas y oportunidades de primer empleo formal.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">🚌</div>
-        <h3>Movilidad</h3>
-        <p>Tarifas preferenciales en transporte y servicios locales de traslado.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">👕</div>
-        <h3>Moda y estilo</h3>
-        <p>Descuentos en ropa, calzado y accesorios en tiendas afiliadas.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">💻</div>
-        <h3>Tecnología</h3>
-        <p>Equipos, accesorios y servicios digitales con beneficio exclusivo.</p>
-      </div>
-    </div>
-    <div class="benefits-cta fade-up">
-      <button class="btn btn-primary" onclick="openModal('joven')">Quiero acceder a estos beneficios</button>
-    </div>
-  </div>
-</section>
+<div class="kit-body">
 
-<!-- ══ RESPALDO INSTITUCIONAL ══ -->
-<section class="section-sm trust-section">
-  <div class="container">
-    <div class="trust-text fade-up">
-      <div class="label-tag">Respaldo oficial</div>
-      <h2 class="section-title">Un programa con el respaldo del Gobierno de Hidalgo.</h2>
-      <p class="trust-body">Tarjeta Joven es una iniciativa oficial del Instituto Hidalguense de la Juventud, diseñada para que los jóvenes hidalguenses accedan a beneficios reales en comercios de su municipio. Sin costo, sin trámites complicados.</p>
-    </div>
-    <div class="logos-strip fade-up">
-      <div class="logo-pill"><div class="logo-pill-dot"></div>IHJ</div>
-      <div class="logo-pill"><div class="logo-pill-dot"></div>COEMERE</div>
-      <div class="logo-pill"><div class="logo-pill-dot"></div>Gobierno de Hidalgo</div>
-      <div class="logo-pill"><div class="logo-pill-dot"></div>INHJUVE</div>
-      <div class="logo-pill"><div class="logo-pill-dot"></div>Municipios de Hidalgo</div>
-      <div class="logo-pill"><div class="logo-pill-dot"></div>Sociedad Civil</div>
+  <!-- LEYENDA -->
+  <div class="kit-section">
+    <h2>Leyenda de actores</h2>
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot" style="background:#555"></div> Público sin sesión</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--brand)"></div> Joven beneficiario</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--brand2)"></div> Comercio afiliado</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#2E4D2E"></div> Admin IHJ (desktop)</div>
     </div>
   </div>
-</section>
 
-<!-- ══ POR QUÉ UNIRTE ══ -->
-<section class="section why-section" id="negocios">
-  <div class="container">
-    <div class="text-center fade-up" style="margin-bottom:64px;">
-      <div class="label-tag">¿Por qué unirte?</div>
-      <h2 class="section-title">Diseñado para jóvenes y negocios por igual.</h2>
-      <p class="section-sub">Dos perfiles, un mismo ecosistema de beneficios que fortalece la economía local hidalguense.</p>
-    </div>
-    <div class="why-inner fade-up">
-      <div class="why-col joven">
-        <div class="tag">Para jóvenes</div>
-        <h3>Ahorra desde el primer día.</h3>
-        <ul class="why-list">
-          <li>
-            <div class="why-icon">🎯</div>
-            <div class="why-text"><strong>Descuentos en 6+ categorías</strong><span>Alimentación, salud, educación, cultura, movilidad y empleo en un solo lugar.</span></div>
-          </li>
-          <li>
-            <div class="why-icon">⚡</div>
-            <div class="why-text"><strong>Registro en menos de 2 minutos</strong><span>Sin filas, sin papelería, sin costo. Solo tu nombre, municipio y WhatsApp.</span></div>
-          </li>
-          <li>
-            <div class="why-icon">📱</div>
-            <div class="why-text"><strong>Tarjeta digital inmediata</strong><span>Recibe tu tarjeta por WhatsApp y úsala desde el mismo día en negocios afiliados.</span></div>
-          </li>
-          <li>
-            <div class="why-icon">🗺️</div>
-            <div class="why-text"><strong>Válida en todo el estado</strong><span>Red de negocios afiliados en tu municipio y en toda la red del estado de Hidalgo.</span></div>
-          </li>
-        </ul>
-        <div class="why-col-cta">
-          <button class="btn btn-primary" onclick="openModal('joven')">Registrarme ahora →</button>
-        </div>
+  <!-- FLUJOS -->
+  <div class="kit-section">
+    <h2>Flujos de usuario</h2>
+    <div class="flow-box">
+      <div class="flow-row">
+        <span class="flow-label">Público</span>
+        <a class="flow-node pub" href="01-catalogo-publico.html">Catálogo público</a>
+        <span class="flow-arr">→</span>
+        <a class="flow-node pub" href="00-login.html">Login / Registro</a>
       </div>
-      <div class="why-divider"><div class="why-divider-dot">vs</div></div>
-      <div class="why-col negocio">
-        <div class="tag" style="background:var(--guinda-light);color:var(--guinda);">Para negocios</div>
-        <h3>Clientela joven garantizada.</h3>
-        <ul class="why-list">
-          <li>
-            <div class="why-icon" style="background:var(--guinda-dark);">👥</div>
-            <div class="why-text"><strong>Miles de jóvenes activos</strong><span>Jóvenes de 12 a 29 años que buscan activamente negocios afiliados en su municipio.</span></div>
-          </li>
-          <li>
-            <div class="why-icon" style="background:var(--guinda-dark);">📢</div>
-            <div class="why-text"><strong>Difusión oficial gratuita</strong><span>Tu negocio aparece en el directorio del programa con respaldo institucional del IHJ.</span></div>
-          </li>
-          <li>
-            <div class="why-icon" style="background:var(--guinda-dark);">📲</div>
-            <div class="why-text"><strong>Sin tecnología complicada</strong><span>Validas las tarjetas con un QR simple. Funciona con cualquier smartphone básico.</span></div>
-          </li>
-          <li>
-            <div class="why-icon" style="background:var(--guinda-dark);">🎛️</div>
-            <div class="why-text"><strong>Tú defines el beneficio</strong><span>Propones el descuento que se adapta a tu negocio. Sin porcentajes mínimos impuestos.</span></div>
-          </li>
-        </ul>
-        <div class="why-col-cta">
-          <button class="btn btn-secondary" onclick="openModal('negocio')">Afiliar mi negocio →</button>
-        </div>
+      <div class="flow-row">
+        <span class="flow-label">Joven</span>
+        <a class="flow-node jov" href="02-registro-joven.html">Registro</a>
+        <span class="flow-arr">→</span>
+        <a class="flow-node jov" href="03-pendiente.html">Pendiente aprobación</a>
+        <span class="flow-arr">→</span>
+        <span style="font-size:11px;color:var(--text-3)">[IHJ aprueba]</span>
+        <span class="flow-arr">→</span>
+        <a class="flow-node jov" href="04-perfil-joven.html">Mi Tarjeta / Perfil</a>
+        <span class="flow-arr">→</span>
+        <a class="flow-node jov" href="05-catalogo-auth.html">Catálogo desbloqueado</a>
+        <span class="flow-arr">→</span>
+        <a class="flow-node jov" href="06-detalle-descuento.html">Detalle descuento</a>
+      </div>
+      <div class="flow-row">
+        <span class="flow-label">Comercio</span>
+        <a class="flow-node biz" href="07-registro-comercio.html">Registro</a>
+        <span class="flow-arr">→</span>
+        <span style="font-size:11px;color:var(--text-3)">[IHJ aprueba]</span>
+        <span class="flow-arr">→</span>
+        <a class="flow-node biz" href="08-dashboard-comercio.html">Dashboard</a>
+        <span class="flow-arr">→</span>
+        <a class="flow-node biz" href="09-alta-descuento.html">Alta descuento</a>
+        <span class="flow-arr">→</span>
+        <span style="font-size:11px;color:var(--text-3)">[IHJ aprueba]</span>
+        <span class="flow-arr">→</span>
+        <span style="font-size:12px;font-weight:600;color:var(--ok)">Visible en catálogo</span>
+      </div>
+      <div class="flow-row">
+        <span class="flow-label">Admin IHJ</span>
+        <a class="flow-node adm" href="10-admin-dashboard.html">Dashboard</a>
+        <span class="flow-arr">→</span>
+        <a class="flow-node adm" href="11-admin-jovenes.html">Aprobar jóvenes</a>
+        <span class="flow-arr">+</span>
+        <a class="flow-node adm" href="12-admin-comercios.html">Aprobar comercios</a>
+        <span class="flow-arr">+</span>
+        <a class="flow-node adm" href="13-admin-descuentos.html">Aprobar descuentos</a>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ══ CÓMO FUNCIONA ══ -->
-<section class="section-sm" id="como-funciona" style="background:var(--gray-100);">
-  <div class="container text-center fade-up">
-    <div class="label-tag">¿Cómo funciona?</div>
-    <h2 class="section-title">En 3 pasos, tu tarjeta activa.</h2>
-    <p class="section-sub">El proceso más simple que existe para acceder a tus beneficios.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px;" class="fade-up">
-      <div style="padding:32px 24px;background:var(--white);border-radius:var(--radius-lg);border:1.5px solid var(--gray-200);text-align:center;transition:all .22s;" onmouseover="this.style.borderColor='var(--guinda)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)'">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--guinda);color:var(--dorado-light);font-size:22px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;border:3px solid var(--dorado);">1</div>
-        <h4 style="font-size:15px;font-weight:800;margin-bottom:10px;">Regístrate aquí</h4>
-        <p style="font-size:13px;color:var(--gray-600);line-height:1.6;font-weight:500;">Llena el formulario en menos de 2 minutos. Solo tu nombre, municipio y WhatsApp.</p>
-      </div>
-      <div style="padding:32px 24px;background:var(--white);border-radius:var(--radius-lg);border:1.5px solid var(--gray-200);text-align:center;transition:all .22s;" onmouseover="this.style.borderColor='var(--guinda)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)'">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--guinda);color:var(--dorado-light);font-size:22px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;border:3px solid var(--dorado);">2</div>
-        <h4 style="font-size:15px;font-weight:800;margin-bottom:10px;">Recibe tu tarjeta</h4>
-        <p style="font-size:13px;color:var(--gray-600);line-height:1.6;font-weight:500;">Te enviamos tu tarjeta digital por WhatsApp. Sin filas ni trámites presenciales obligatorios.</p>
-      </div>
-      <div style="padding:32px 24px;background:var(--white);border-radius:var(--radius-lg);border:1.5px solid var(--gray-200);text-align:center;transition:all .22s;" onmouseover="this.style.borderColor='var(--guinda)';this.style.transform='translateY(-4px)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)'">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--guinda);color:var(--dorado-light);font-size:22px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;border:3px solid var(--dorado);">3</div>
-        <h4 style="font-size:15px;font-weight:800;margin-bottom:10px;">Úsala en tu municipio</h4>
-        <p style="font-size:13px;color:var(--gray-600);line-height:1.6;font-weight:500;">Muestra tu código QR en negocios afiliados y empieza a ahorrar desde el primer día.</p>
-      </div>
+  <!-- PANTALLAS -->
+  <div class="kit-section">
+    <h2>Pantallas · 14 en total</h2>
+    <div class="screens-grid">
+      <a class="screen-card" href="01-catalogo-publico.html">
+        <div class="sc-num pub">01</div>
+        <div><div class="sc-name">Catálogo público</div><div class="sc-desc">Vista sin sesión. Descuentos visibles, detalles bloqueados.</div></div>
+      </a>
+      <a class="screen-card" href="00-login.html">
+        <div class="sc-num pub">00</div>
+        <div><div class="sc-name">Login / Acceso</div><div class="sc-desc">Punto de entrada. Joven o comercio.</div></div>
+      </a>
+      <a class="screen-card" href="02-registro-joven.html">
+        <div class="sc-num jov">02</div>
+        <div><div class="sc-name">Registro joven</div><div class="sc-desc">Formulario de auto-registro. Datos + CURP + foto.</div></div>
+      </a>
+      <a class="screen-card" href="03-pendiente.html">
+        <div class="sc-num jov">03</div>
+        <div><div class="sc-name">Pendiente aprobación</div><div class="sc-desc">Estado intermedio. Folio. Qué esperar.</div></div>
+      </a>
+      <a class="screen-card" href="04-perfil-joven.html">
+        <div class="sc-num jov">04</div>
+        <div><div class="sc-name">Perfil joven (activo)</div><div class="sc-desc">Tarjeta visual + ID + CURP + estatus activo.</div></div>
+      </a>
+      <a class="screen-card" href="05-catalogo-auth.html">
+        <div class="sc-num jov">05</div>
+        <div><div class="sc-name">Catálogo autenticado</div><div class="sc-desc">Misma estructura, descuentos desbloqueados.</div></div>
+      </a>
+      <a class="screen-card" href="06-detalle-descuento.html">
+        <div class="sc-num jov">06</div>
+        <div><div class="sc-name">Detalle descuento</div><div class="sc-desc">Info completa + cómo usar + condiciones + vigencia.</div></div>
+      </a>
+      <a class="screen-card" href="07-registro-comercio.html">
+        <div class="sc-num biz">07</div>
+        <div><div class="sc-name">Registro comercio</div><div class="sc-desc">Formulario de afiliación. Datos + logo + categoría.</div></div>
+      </a>
+      <a class="screen-card" href="08-dashboard-comercio.html">
+        <div class="sc-num biz">08</div>
+        <div><div class="sc-name">Dashboard comercio</div><div class="sc-desc">Mis descuentos + estado + alta de nuevos.</div></div>
+      </a>
+      <a class="screen-card" href="09-alta-descuento.html">
+        <div class="sc-num biz">09</div>
+        <div><div class="sc-name">Alta de descuento</div><div class="sc-desc">Formulario para subir descuento. Va a revisión IHJ.</div></div>
+      </a>
+      <a class="screen-card" href="10-admin-dashboard.html">
+        <div class="sc-num adm">10</div>
+        <div><div class="sc-name">Admin · Dashboard</div><div class="sc-desc">Desktop. Estadísticas + pendientes rápidos.</div></div>
+      </a>
+      <a class="screen-card" href="11-admin-jovenes.html">
+        <div class="sc-num adm">11</div>
+        <div><div class="sc-name">Admin · Jóvenes</div><div class="sc-desc">Desktop. Tabla + aprobar / rechazar / desactivar.</div></div>
+      </a>
+      <a class="screen-card" href="12-admin-comercios.html">
+        <div class="sc-num adm">12</div>
+        <div><div class="sc-name">Admin · Comercios</div><div class="sc-desc">Desktop. Tabla + aprobar / rechazar afiliaciones.</div></div>
+      </a>
+      <a class="screen-card" href="13-admin-descuentos.html">
+        <div class="sc-num adm">13</div>
+        <div><div class="sc-name">Admin · Descuentos</div><div class="sc-desc">Desktop. Revisar y publicar descuentos enviados.</div></div>
+      </a>
     </div>
   </div>
-</section>
 
-<!-- ══ TESTIMONIOS ══ -->
-<section class="section testimonials-section">
-  <div class="container">
-    <div class="text-center fade-up">
-      <div class="label-tag">Testimonios</div>
-      <h2 class="section-title">Jóvenes hidalguenses que ya disfrutan sus beneficios.</h2>
-      <p class="section-sub">Historias reales de quienes forman parte del programa Tarjeta Joven.</p>
-    </div>
-    <div class="testimonials-grid fade-up">
-      <div class="testimonial-card">
-        <div class="test-header">
-          <div class="test-avatar">M</div>
-          <div class="test-source"><strong>Estudiante</strong><span>Pachuca de Soto</span></div>
-        </div>
-        <div class="test-stars">★★★★★</div>
-        <blockquote>Nunca pensé que registrarme fuera tan fácil. En menos de 5 minutos ya tenía mi tarjeta en WhatsApp y ese mismo día la usé en la farmacia. ¡Increíble programa!</blockquote>
-        <div class="test-author">
-          <div><div class="test-author-name">Mariana R.</div><div class="test-author-role">Estudiante de preparatoria</div></div>
-          <div class="test-badge">Joven</div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="test-header">
-          <div class="test-avatar">C</div>
-          <div class="test-source"><strong>Emprendedor</strong><span>Tulancingo de Bravo</span></div>
-        </div>
-        <div class="test-stars">★★★★★</div>
-        <blockquote>Como joven emprendedor, los descuentos en servicios digitales y papelería me ayudan a reducir costos cada mes. Además me conectó con otros negocios del municipio.</blockquote>
-        <div class="test-author">
-          <div><div class="test-author-name">Carlos M.</div><div class="test-author-role">Emprendedor joven</div></div>
-          <div class="test-badge">Joven</div>
-        </div>
-      </div>
+  <!-- ALCANCE MVP -->
+  <div class="kit-section">
+    <h2>Alcance MVP v1</h2>
+    <div class="flow-box" style="font-size:13px;line-height:1.8;color:var(--text-2)">
+      <strong style="color:var(--brand)">✓ Incluido en MVP</strong><br>
+      Registro de jóvenes con moderación IHJ · Registro de comercios con moderación IHJ · Alta de descuentos con moderación IHJ ·
+      Catálogo público (bloqueado) · Catálogo autenticado (desbloqueado) · Perfil del joven con ID de tarjeta · Dashboard del comercio ·
+      Backoffice IHJ (aprobar / rechazar / desactivar)
+      <br><br>
+      <strong style="color:var(--text-3)">✗ Fuera de MVP v1</strong><br>
+      Validación QR en punto de venta · Métricas y dashboards de uso · Geolocalización · Notificaciones push · Renovación de tarjeta ·
+      Pago / membresía · Módulo de reportes
     </div>
   </div>
-</section>
 
-<!-- ══ MUNICIPIOS ══ -->
-<section class="section municipios-section" id="municipios">
-  <div class="container">
-    <div class="text-center fade-up">
-      <div class="label-tag">Municipios</div>
-      <h2 class="section-title">Tarjeta Joven disponible en todo el estado.</h2>
-      <p class="section-sub">Encuentra negocios afiliados cerca de ti. Cobertura en los 84 municipios de Hidalgo.</p>
-    </div>
-    <div class="municipios-grid fade-up">
-      <div class="municipio-card">
-        <div class="municipio-img"><span class="municipio-img-emoji">🏙️</span></div>
-        <div class="municipio-body">
-          <div class="municipio-tag">Fase 1</div>
-          <h4>Pachuca de Soto</h4>
-          <p>Capital del estado. Mayor concentración de negocios afiliados al programa.</p>
-          <div class="municipio-meta"><div class="municipio-dot"></div>Negocios afiliados próximamente</div>
-        </div>
-      </div>
-      <div class="municipio-card">
-        <div class="municipio-img"><span class="municipio-img-emoji">🌄</span></div>
-        <div class="municipio-body">
-          <div class="municipio-tag">Fase 1</div>
-          <h4>Tulancingo de Bravo</h4>
-          <p>Segunda ciudad del estado con fuerte actividad comercial juvenil.</p>
-          <div class="municipio-meta"><div class="municipio-dot"></div>Negocios afiliados próximamente</div>
-        </div>
-      </div>
-      <div class="municipio-card">
-        <div class="municipio-img"><span class="municipio-img-emoji">🏭</span></div>
-        <div class="municipio-body">
-          <div class="municipio-tag">Fase 1</div>
-          <h4>Tula de Allende</h4>
-          <p>Corredor industrial con alta demanda de beneficios para jóvenes trabajadores.</p>
-          <div class="municipio-meta"><div class="municipio-dot"></div>Negocios afiliados próximamente</div>
-        </div>
-      </div>
-      <div class="municipio-card">
-        <div class="municipio-img"><span class="municipio-img-emoji">🌿</span></div>
-        <div class="municipio-body">
-          <div class="municipio-tag">Fase 1</div>
-          <h4>Huejutla de Reyes</h4>
-          <p>Región Huasteca con alta densidad de jóvenes y comunidades indígenas.</p>
-          <div class="municipio-meta"><div class="municipio-dot"></div>Negocios afiliados próximamente</div>
-        </div>
-      </div>
-    </div>
-    <div class="municipios-cta fade-up">
-      <button class="btn btn-secondary" onclick="openModal('joven')">Registrarme en mi municipio</button>
-    </div>
-  </div>
-</section>
-
-<!-- ══ PRE-REGISTRO ══ -->
-<section class="section registro-section" id="registro-form">
-  <div class="container">
-    <div class="text-center fade-up">
-      <div class="label-tag">Pre-registro</div>
-      <h2 class="section-title">¿Eres joven o tienes un negocio?</h2>
-      <p class="section-sub">Selecciona tu perfil. Te contactamos en menos de 48 horas por WhatsApp.</p>
-    </div>
-    <div class="registro-inner fade-up">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:680px;margin:48px auto 0;">
-        <div class="reg-card featured" style="text-align:center;cursor:pointer;" onclick="openModal('joven')">
-          <div style="font-size:40px;margin-bottom:12px;">🎓</div>
-          <div class="reg-featured-badge">✦ Para jóvenes</div>
-          <h3>Soy joven</h3>
-          <p class="reg-desc" style="margin-bottom:20px;">12–29 años · Gratis · Tarjeta en 48 hrs</p>
-          <button class="btn-submit btn-submit-guinda" style="pointer-events:none;">Registrarme →</button>
-        </div>
-        <div class="reg-card" style="text-align:center;cursor:pointer;" onclick="openModal('negocio')">
-          <div style="font-size:40px;margin-bottom:12px;">🏪</div>
-          <h3 style="color:var(--guinda);">Tengo un negocio</h3>
-          <p class="reg-desc" style="margin-bottom:20px;">Afiliación gratuita · Asesor en 48 hrs</p>
-          <button class="btn-submit btn-submit-gold" style="pointer-events:none;">Afiliar mi negocio →</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ MODAL OVERLAY — FLUJO COMPLETO ══ -->
-<div id="modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(62,13,28,0.72);z-index:900;overflow-y:auto;padding:24px 16px;">
-  <div style="max-width:580px;margin:0 auto;position:relative;">
-
-    <!-- BOTÓN CERRAR -->
-    <button onclick="closeModal()" style="position:absolute;top:-8px;right:0;width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,0.15);color:white;font-size:18px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;font-family:var(--font);">×</button>
-
-    <!-- NAV MODAL -->
-    <div style="background:var(--guinda);border-radius:18px 18px 0 0;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="11,1 13.5,8.5 21,8.5 15,13 17.5,20.5 11,16 4.5,20.5 7,13 1,8.5 8.5,8.5" fill="#DDC9A3"/></svg>
-        <span style="font-size:13px;font-weight:800;color:var(--dorado-light);">Tarjeta Joven · Hidalgo</span>
-      </div>
-      <span id="modal-step-badge" style="font-size:10px;font-weight:800;color:var(--dorado);background:rgba(188,149,91,0.15);border:1px solid rgba(188,149,91,0.3);border-radius:999px;padding:4px 12px;letter-spacing:1px;text-transform:uppercase;">Paso 1 de 3</span>
-    </div>
-
-    <!-- CARD MODAL -->
-    <div style="background:white;border-radius:0 0 18px 18px;padding:32px 28px;">
-
-      <!-- BARRA DE PROGRESO -->
-      <div style="height:4px;background:var(--gray-200);border-radius:2px;margin-bottom:28px;">
-        <div id="modal-progress" style="height:100%;background:var(--guinda);border-radius:2px;transition:width .4s ease;width:0%;"></div>
-      </div>
-
-      <!-- ── PANTALLA: REGISTRO JOVEN ── -->
-      <div class="modal-screen" id="ms-reg-j">
-        <div class="label-tag">Registro · Joven</div>
-        <h2 style="font-size:22px;font-weight:900;color:var(--black);margin-bottom:4px;">Tus datos básicos</h2>
-        <p style="font-size:13px;color:var(--gray-600);margin-bottom:24px;font-weight:500;">Gratis, en 2 minutos. Solo lo esencial para enviarte tu tarjeta.</p>
-        <div class="fgrid">
-          <div class="fgroup"><label>Nombre completo</label><input type="text" id="j-nombre" placeholder="Tu nombre"/></div>
-          <div class="fgroup"><label>Edad</label><input type="number" id="j-edad" placeholder="Ej. 21" min="12" max="29"/></div>
-        </div>
-        <div class="fgroup"><label>WhatsApp</label><input type="tel" id="j-tel" placeholder="771 234 5678"/></div>
-        <div class="fgroup">
-          <label>Municipio de residencia</label>
-          <select id="j-mun">
-            <option value="">Selecciona tu municipio</option>
-            <option>Acatlán</option><option>Acaxochitlán</option><option>Actopan</option><option>Agua Blanca de Iturbide</option><option>Ajacuba</option><option>Alfajayucan</option><option>Almoloya</option><option>Apan</option><option>El Arenal</option><option>Atitalaquia</option><option>Atlapexco</option><option>Atotonilco de Tula</option><option>Atotonilco el Grande</option><option>Calnali</option><option>Cardonal</option><option>Chapantongo</option><option>Chapulhuacán</option><option>Chilcuautla</option><option>Cuautepec de Hinojosa</option><option>Eloxochitlán</option><option>Emiliano Zapata</option><option>Epazoyucan</option><option>Francisco I. Madero</option><option>Huasca de Ocampo</option><option>Huautla</option><option>Huazalingo</option><option>Huehuetla</option><option>Huejutla de Reyes</option><option>Huichapan</option><option>Ixmiquilpan</option><option>Jacala de Ledezma</option><option>Jaltocán</option><option>Juárez Hidalgo</option><option>Lolotla</option><option>Metepec</option><option>San Agustín Metzquititlán</option><option>Metztitlán</option><option>Mineral del Chico</option><option>Mineral del Monte</option><option>La Misión</option><option>Mixquiahuala de Juárez</option><option>Molango de Escamilla</option><option>Nicolás Flores</option><option>Nopala de Villagrán</option><option>Omitlán de Juárez</option><option>San Felipe Orizatlán</option><option>Pacula</option><option>Pachuca de Soto</option><option>Pisaflores</option><option>Progreso de Obregón</option><option>Mineral de la Reforma</option><option>San Agustín Tlaxiaca</option><option>San Bartolo Tutotepec</option><option>San Salvador</option><option>Santiago de Anaya</option><option>Santiago Tulantepec</option><option>Singuilucan</option><option>Tasquillo</option><option>Tecozautla</option><option>Tenango de Doria</option><option>Tepeapulco</option><option>Tepehuacán de Guerrero</option><option>Tepeji del Río</option><option>Tepetitlán</option><option>Tetepango</option><option>Villa de Tezontepec</option><option>Tezontepec de Aldama</option><option>Tianguistengo</option><option>Tizayuca</option><option>Tlahuelilpan</option><option>Tlahuiltepa</option><option>Tlanalapa</option><option>Tlanchinol</option><option>Tlaxcoapan</option><option>Tolcayuca</option><option>Tula de Allende</option><option>Tulancingo de Bravo</option><option>Xochiatipan</option><option>Xochicoatlán</option><option>Yahualica</option><option>Zacualtipán de Ángeles</option><option>Zapotlán de Juárez</option><option>Zempoala</option><option>Zimapán</option>
-          </select>
-        </div>
-        <div style="display:flex;gap:10px;margin-top:8px;">
-          <button class="btn-submit btn-submit-guinda" onclick="validateRegJ()">Siguiente → cuéntanos más</button>
-        </div>
-        <p class="reg-privacy">🔒 Tus datos son confidenciales · Solo usamos tu WhatsApp para tu tarjeta</p>
-      </div>
-
-      <!-- ── PANTALLA: INSTRUMENTO JOVEN ── -->
-      <div class="modal-screen" id="ms-inst-j" style="display:none;">
-        <div class="label-tag">Cuéntanos un poco más</div>
-        <h2 style="font-size:22px;font-weight:900;color:var(--black);margin-bottom:4px;">5 preguntas rápidas</h2>
-        <p style="font-size:13px;color:var(--gray-600);margin-bottom:24px;font-weight:500;">Nos ayudas a encontrar los mejores negocios cerca de ti. Menos de 90 segundos.</p>
-
-        <div class="inst-block">
-          <div class="inst-q"><div class="inst-num">1</div>¿Cuál describe mejor tu situación actual?</div>
-          <div class="pill-wrap" id="ij-perfil">
-            <button class="ipill" onclick="pickPill(this,'ij-perfil')">Estudiante</button>
-            <button class="ipill" onclick="pickPill(this,'ij-perfil')">Trabajador/a</button>
-            <button class="ipill" onclick="pickPill(this,'ij-perfil')">Emprendedor/a</button>
-            <button class="ipill" onclick="pickPill(this,'ij-perfil')">Sin empleo actualmente</button>
-            <button class="ipill" onclick="pickPill(this,'ij-perfil')">Zona rural / comunidad</button>
-          </div>
-        </div>
-
-        <div class="inst-divider"></div>
-
-        <div class="inst-block">
-          <div class="inst-q"><div class="inst-num">2</div>¿Qué beneficios te interesan más? <span style="font-size:10px;font-weight:500;color:var(--gray-400);">(elige hasta 3)</span></div>
-          <div class="pill-wrap" id="ij-beneficios">
-            <button class="ipill" onclick="pickMulti(this,'ij-beneficios',3)">🍽️ Alimentación</button>
-            <button class="ipill" onclick="pickMulti(this,'ij-beneficios',3)">🏥 Salud</button>
-            <button class="ipill" onclick="pickMulti(this,'ij-beneficios',3)">📚 Educación</button>
-            <button class="ipill" onclick="pickMulti(this,'ij-beneficios',3)">🎭 Cultura</button>
-            <button class="ipill" onclick="pickMulti(this,'ij-beneficios',3)">💼 Empleo</button>
-            <button class="ipill" onclick="pickMulti(this,'ij-beneficios',3)">🚌 Movilidad</button>
-          </div>
-        </div>
-
-        <div class="inst-divider"></div>
-
-        <div class="inst-block">
-          <div class="inst-q"><div class="inst-num">3</div>¿Con qué frecuencia sales a consumir en tu municipio?</div>
-          <div class="pill-wrap" id="ij-frecuencia">
-            <button class="ipill" onclick="pickPill(this,'ij-frecuencia')">Todos los días</button>
-            <button class="ipill" onclick="pickPill(this,'ij-frecuencia')">2–4 veces por semana</button>
-            <button class="ipill" onclick="pickPill(this,'ij-frecuencia')">Una vez por semana</button>
-            <button class="ipill" onclick="pickPill(this,'ij-frecuencia')">Muy poco</button>
-          </div>
-        </div>
-
-        <div class="inst-divider"></div>
-
-        <div class="inst-block">
-          <div class="inst-q"><div class="inst-num">4</div>¿Tienes WhatsApp activo en tu celular personal?</div>
-          <div class="pill-wrap" id="ij-wa">
-            <button class="ipill" onclick="pickPill(this,'ij-wa')">Sí, siempre lo uso</button>
-            <button class="ipill" onclick="pickPill(this,'ij-wa')">Sí, pero no siempre tengo internet</button>
-            <button class="ipill" onclick="pickPill(this,'ij-wa')">No tengo WhatsApp</button>
-          </div>
-        </div>
-
-        <div class="inst-divider"></div>
-
-        <div class="inst-block">
-          <div class="inst-q"><div class="inst-num">5</div>¿Conoces algún otro programa de beneficios juveniles en Hidalgo?</div>
-          <div class="pill-wrap" id="ij-otros">
-            <button class="ipill" onclick="pickPill(this,'ij-otros')">Sí y lo uso actualmente</button>
-            <button class="ipill" onclick="pickPill(this,'ij-otros')">Sí, pero no lo uso</button>
-            <button class="ipill" onclick="pickPill(this,'ij-otros')">No conozco ninguno</button>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:10px;margin-top:24px;">
-          <button class="btn-submit btn-submit-guinda" onclick="goConfirmJ()">Ver mi resumen →</button>
-          <button onclick="goConfirmJ()" style="padding:13px 18px;border:1.5px solid var(--gray-200);border-radius:999px;font-size:12px;font-weight:700;background:transparent;color:var(--gray-600);cursor:pointer;font-family:var(--font);">Omitir</button>
-        </div>
-      </div>
-
-      <!-- ── PANTALLA: CONFIRMACIÓN JOVEN ── -->
-      <div class="modal-screen" id="ms-conf-j" style="display:none;">
-        <div class="label-tag">Confirma tu registro</div>
-        <h2 style="font-size:22px;font-weight:900;color:var(--black);margin-bottom:4px;">¿Todo correcto?</h2>
-        <p style="font-size:13px;color:var(--gray-600);margin-bottom:24px;font-weight:500;">Revisa tus datos antes de enviar. Puedes regresar si necesitas corregir algo.</p>
-
-        <div style="background:var(--guinda-light);border:1.5px solid rgba(105,27,49,0.2);border-radius:var(--radius-md);padding:16px 18px;margin-bottom:14px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <div style="width:36px;height:36px;border-radius:50%;background:var(--guinda);color:white;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">👤</div>
-            <strong style="font-size:14px;font-weight:800;color:var(--guinda);">Datos de registro</strong>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-            <div style="background:white;border-radius:8px;border:0.5px solid var(--gray-200);padding:10px 12px;">
-              <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);margin-bottom:2px;">Nombre</div>
-              <div id="cj-nombre" style="font-size:13px;font-weight:700;color:var(--black);">—</div>
-            </div>
-            <div style="background:white;border-radius:8px;border:0.5px solid var(--gray-200);padding:10px 12px;">
-              <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);margin-bottom:2px;">Edad</div>
-              <div id="cj-edad" style="font-size:13px;font-weight:700;color:var(--black);">—</div>
-            </div>
-            <div style="background:white;border-radius:8px;border:0.5px solid var(--gray-200);padding:10px 12px;">
-              <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);margin-bottom:2px;">WhatsApp</div>
-              <div id="cj-tel" style="font-size:13px;font-weight:700;color:var(--black);">—</div>
-            </div>
-            <div style="background:white;border-radius:8px;border:0.5px solid var(--gray-200);padding:10px 12px;">
-              <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);margin-bottom:2px;">Municipio</div>
-              <div id="cj-mun" style="font-size:13px;font-weight:700;color:var(--black);">—</div>
-            </div>
-          </div>
-        </div>
-
-        <div style="background:var(--dorado-bg);border:1.5px solid rgba(188,149,91,0.3);border-radius:var(--radius-md);padding:14px 18px;margin-bottom:24px;display:flex;gap:10px;">
-          <div style="font-size:20px;flex-shrink:0;">📋</div>
-          <div>
-            <strong style="font-size:13px;font-weight:800;color:var(--guinda);display:block;margin-bottom:3px;">Perfil capturado</strong>
-            <span id="cj-perfil" style="font-size:12px;color:var(--gray-600);line-height:1.5;">Tu información ayudará a personalizar los negocios afiliados cerca de ti.</span>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:10px;">
-          <button class="btn-submit btn-submit-guinda" onclick="finalSubmitJ()">Enviar registro ✓</button>
-          <button onclick="showModalScreen('ms-inst-j',2,66)" style="padding:13px 18px;border:1.5px solid var(--gray-200);border-radius:999px;font-size:12px;font-weight:700;background:transparent;color:var(--gray-600);cursor:pointer;font-family:var(--font);">← Editar</button>
-        </div>
-        <p class="reg-privacy">🔒 Al enviar aceptas el aviso de privacidad del IHJ · Gobierno de Hidalgo</p>
-      </div>
-
-      <!-- ── PANTALLA: REGISTRO NEGOCIO ── -->
-      <div class="modal-screen" id="ms-reg-n" style="display:none;">
-        <div class="label-tag">Registro · Negocio</div>
-        <h2 style="font-size:22px;font-weight:900;color:var(--black);margin-bottom:4px;">Datos de tu negocio</h2>
-        <p style="font-size:13px;color:var(--gray-600);margin-bottom:24px;font-weight:500;">Afiliación gratuita. Un asesor del IHJ te contactará en 48 hrs por WhatsApp.</p>
-        <div class="fgroup"><label>Nombre del negocio</label><input type="text" id="n-nombre" placeholder="Ej. Farmacia San Juan"/></div>
-        <div class="fgrid">
-          <div class="fgroup">
-            <label>Giro</label>
-            <select id="n-giro">
-              <option value="">Selecciona</option>
-              <option>Alimentación</option><option>Salud y farmacia</option>
-              <option>Educación</option><option>Cultura y entretenimiento</option>
-              <option>Ropa y moda</option><option>Tecnología</option>
-              <option>Transporte</option><option>Otro</option>
-            </select>
-          </div>
-          <div class="fgroup">
-            <label>Municipio</label>
-            <select id="n-mun">
-              <option value="">Municipio</option>
-              <option>Pachuca de Soto</option><option>Tulancingo de Bravo</option>
-              <option>Tula de Allende</option><option>Tizayuca</option>
-              <option>Actopan</option><option>Huejutla de Reyes</option>
-              <option>Ixmiquilpan</option><option>Zimapán</option>
-              <option>Apan</option><option>Tepeji del Río</option><option>Otro municipio</option>
-            </select>
-          </div>
-        </div>
-        <div class="fgroup"><label>WhatsApp de contacto</label><input type="tel" id="n-tel" placeholder="771 234 5678"/></div>
-        <div style="display:flex;gap:10px;margin-top:8px;">
-          <button class="btn-submit btn-submit-gold" onclick="validateRegN()">Siguiente → perfil del negocio</button>
-        </div>
-        <p class="reg-privacy">🔒 Sin costo ni compromiso · Proceso 100% gratuito</p>
-      </div>
-
-      <!-- ── PANTALLA: INSTRUMENTO NEGOCIO ── -->
-      <div class="modal-screen" id="ms-inst-n" style="display:none;">
-        <div class="label-tag">Perfil de tu negocio</div>
-        <h2 style="font-size:22px;font-weight:900;color:var(--black);margin-bottom:4px;">5 preguntas rápidas</h2>
-        <p style="font-size:13px;color:var(--gray-600);margin-bottom:24px;font-weight:500;">Nos ayuda a diseñar el mejor esquema de afiliación para tu negocio. Menos de 90 segundos.</p>
-
-        <div class="inst-block">
-          <div class="inst-q"><div class="inst-num" style="background:var(--dorado);color:var(--guinda-dark);">1</div>¿Cómo describirías el tamaño de tu negocio?</div>
-          <div class="pill-wrap" id="in-tamano">
-            <button class="ipill ipill-gold" onclick="pickPill(this,'in-tamano')">Negocio familiar / micro</button>
-            <button class="ipill ipill-gold" onclick="pickPill(this,'in-tamano')">Pequeño (1–10 empleados)</button>
-            <button class="ipill ipill-gold" onclick="pickPill(this,'in-tamano')">Mediano (11–50 empleados)</button>
-            <button class="ipill ipill-gold" onclick="pickPill(this,'in-tamano')">Grande / cadena</button>
-          </div>
-        </div>
-
-        <div class="inst-divider"></div>
-
-        <div class="inst-block">
-          <div class="inst-q"><div class="inst-num" style="background:var(--dorado);color:var(--guinda-dark);">2</div>¿Actualmente ofreces algún descuento o beneficio para jóvenes?</div>
-          <div class="pill-wrap" id="in-desc">
-            <button class="ipill ipill-gold" onclick="pickPill(this,'in-desc')">Sí, tenemos precio especial</button>
-            <button class="ipill ipill-gold" onclick="pickPill(this,'in-desc')">A veces, de manera informal</button>
-            <button class="ipill ipill-gold" onclick="pickPill(this,'in-desc')">No, pero me interesa</button>
-            <button class="ipill ipill-gold" onclick="pickPill(this,'in-desc')">No lo había considerado</button>
-          </div>
-        </div>
-
-        <div class="inst-divider"></div>
-
-        <div class="inst-block">
-          <div class="inst-q"><div class="inst-num" style="background:var(--dorado);color:var(--guinda-dark);">3</div>¿Qué tipo de beneficio estarías dispuesto a ofrecer? <span style="font-size:10px;font-weight:500;color:var(--gray-400);">(puedes elegir varios)</span></div>
-          <div class="pill-wrap" id="in-tipo">
-            <button class="ipill ipill-gold" onclick="pickMulti(this,'in-tipo',99)">% de descuento en precio</button>
-            <button class="ipill ipill-gold" onclick="pickMulti(this,'in-tipo',99)">Producto / servicio gratis</button>
-            <button class="ipill ipill-gold" onclick="pickMulti(this,'in-tipo',99)">2x1 en ciertos productos</button>
-            <button class="ipill ipill-gold" onclick="pickMulti(this,'in-tipo',99)">Servicio prioritario</button>
-            <button class="ipill ipill-gold" onclick="pickMulti(this,'in-tipo',99)">Aún no lo tengo definido</button>
-          </div>
-        </div>
-
-        <div class="inst-divider"></div>
-
-        <div class="inst-block">
-          <div class="inst-q"><div class="inst-num" style="background:var(--dorado);color:var(--guinda-dark);">4</div>¿Tu negocio ya acepta pagos digitales o tiene lector de QR?</div>
-          <div class="pill-wrap" id="in-digital">
-            <button class="ipill ipill-gold" onclick="pickPill(this,'in-digital')">Sí, tenemos terminal y QR</button>
-            <button class="ipill ipill-gold" onclick="pickPill(this,'in-digital')">Solo transferencias / CoDi</button>
-            <button class="ipill ipill-gold" onclick="pickPill(this,'in-digital')">Solo efectivo por ahora</button>
-            <button class="ipill ipill-gold" onclick="pickPill(this,'in-digital')">Tenemos smartphone básico</button>
-          </div>
-        </div>
-
-        <div class="inst-divider"></div>
-
-        <div class="inst-block">
-          <div class="inst-q"><div class="inst-num" style="background:var(--dorado);color:var(--guinda-dark);">5</div>Aprox. ¿cuántos clientes jóvenes (12–29 años) recibes por semana?</div>
-          <div style="display:flex;gap:6px;" id="in-clientes">
-            <button class="iscale" onclick="pickScale(this,'in-clientes')">0–10</button>
-            <button class="iscale" onclick="pickScale(this,'in-clientes')">11–30</button>
-            <button class="iscale" onclick="pickScale(this,'in-clientes')">31–60</button>
-            <button class="iscale" onclick="pickScale(this,'in-clientes')">61–100</button>
-            <button class="iscale" onclick="pickScale(this,'in-clientes')">100+</button>
-          </div>
-          <div style="display:flex;justify-content:space-between;margin-top:4px;">
-            <span style="font-size:10px;color:var(--gray-400);">Muy pocos</span>
-            <span style="font-size:10px;color:var(--gray-400);">Muchos</span>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:10px;margin-top:24px;">
-          <button class="btn-submit btn-submit-gold" onclick="goConfirmN()">Ver mi resumen →</button>
-          <button onclick="goConfirmN()" style="padding:13px 18px;border:1.5px solid var(--gray-200);border-radius:999px;font-size:12px;font-weight:700;background:transparent;color:var(--gray-600);cursor:pointer;font-family:var(--font);">Omitir</button>
-        </div>
-      </div>
-
-      <!-- ── PANTALLA: CONFIRMACIÓN NEGOCIO ── -->
-      <div class="modal-screen" id="ms-conf-n" style="display:none;">
-        <div class="label-tag">Confirma tu solicitud</div>
-        <h2 style="font-size:22px;font-weight:900;color:var(--black);margin-bottom:4px;">¿Todo correcto?</h2>
-        <p style="font-size:13px;color:var(--gray-600);margin-bottom:24px;font-weight:500;">Revisa los datos de tu negocio antes de enviar la solicitud de afiliación.</p>
-
-        <div style="background:var(--guinda-light);border:1.5px solid rgba(105,27,49,0.2);border-radius:var(--radius-md);padding:16px 18px;margin-bottom:14px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <div style="font-size:20px;">🏪</div>
-            <strong style="font-size:14px;font-weight:800;color:var(--guinda);">Datos del negocio</strong>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-            <div style="background:white;border-radius:8px;border:0.5px solid var(--gray-200);padding:10px 12px;">
-              <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);margin-bottom:2px;">Negocio</div>
-              <div id="cn-nombre" style="font-size:13px;font-weight:700;color:var(--black);">—</div>
-            </div>
-            <div style="background:white;border-radius:8px;border:0.5px solid var(--gray-200);padding:10px 12px;">
-              <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);margin-bottom:2px;">Giro</div>
-              <div id="cn-giro" style="font-size:13px;font-weight:700;color:var(--black);">—</div>
-            </div>
-            <div style="background:white;border-radius:8px;border:0.5px solid var(--gray-200);padding:10px 12px;">
-              <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);margin-bottom:2px;">WhatsApp</div>
-              <div id="cn-tel" style="font-size:13px;font-weight:700;color:var(--black);">—</div>
-            </div>
-            <div style="background:white;border-radius:8px;border:0.5px solid var(--gray-200);padding:10px 12px;">
-              <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);margin-bottom:2px;">Municipio</div>
-              <div id="cn-mun" style="font-size:13px;font-weight:700;color:var(--black);">—</div>
-            </div>
-          </div>
-        </div>
-
-        <div style="background:var(--dorado-bg);border:1.5px solid rgba(188,149,91,0.3);border-radius:var(--radius-md);padding:14px 18px;margin-bottom:24px;display:flex;gap:10px;">
-          <div style="font-size:20px;flex-shrink:0;">📊</div>
-          <div>
-            <strong style="font-size:13px;font-weight:800;color:var(--guinda);display:block;margin-bottom:3px;">Perfil de afiliación</strong>
-            <span id="cn-perfil" style="font-size:12px;color:var(--gray-600);line-height:1.5;">Un asesor del IHJ revisará tu perfil y te contactará para completar el proceso.</span>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:10px;">
-          <button class="btn-submit btn-submit-gold" onclick="finalSubmitN()">Enviar solicitud ✓</button>
-          <button onclick="showModalScreen('ms-inst-n',2,66)" style="padding:13px 18px;border:1.5px solid var(--gray-200);border-radius:999px;font-size:12px;font-weight:700;background:transparent;color:var(--gray-600);cursor:pointer;font-family:var(--font);">← Editar</button>
-        </div>
-        <p class="reg-privacy">🔒 Al enviar aceptas el aviso de privacidad del IHJ · Sin costo ni compromiso</p>
-      </div>
-
-      <!-- ── PANTALLA: ÉXITO JOVEN ── -->
-      <div class="modal-screen" id="ms-ok-j" style="display:none;text-align:center;padding:16px 0;">
-        <div style="width:80px;height:80px;border-radius:50%;background:var(--guinda);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:36px;">🎉</div>
-        <h2 style="font-size:24px;font-weight:900;color:var(--black);margin-bottom:10px;">¡Ya estás registrado!</h2>
-        <p style="font-size:14px;color:var(--gray-600);line-height:1.7;max-width:380px;margin:0 auto 28px;">En las próximas <strong>48 horas</strong> recibirás tu Tarjeta Joven directamente en tu WhatsApp. ¡Listo para ahorrar en Hidalgo!</p>
-        <div style="display:flex;flex-direction:column;gap:10px;max-width:380px;margin:0 auto 28px;text-align:left;">
-          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--gray-100);border-radius:10px;">
-            <div style="width:26px;height:26px;border-radius:50%;background:var(--guinda);color:var(--dorado-light);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
-            <span style="font-size:13px;font-weight:600;color:var(--black);">Revisa tu WhatsApp — te enviamos tu tarjeta digital</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--gray-100);border-radius:10px;">
-            <div style="width:26px;height:26px;border-radius:50%;background:var(--guinda);color:var(--dorado-light);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
-            <span style="font-size:13px;font-weight:600;color:var(--black);">Muestra tu QR en negocios afiliados de tu municipio</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--gray-100);border-radius:10px;">
-            <div style="width:26px;height:26px;border-radius:50%;background:var(--guinda);color:var(--dorado-light);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
-            <span style="font-size:13px;font-weight:600;color:var(--black);">Empieza a ahorrar desde el primer día ¡es gratis!</span>
-          </div>
-        </div>
-        <button class="btn-submit btn-submit-guinda" style="max-width:300px;margin:0 auto;" onclick="closeModal()">Cerrar ✓</button>
-      </div>
-
-      <!-- ── PANTALLA: ÉXITO NEGOCIO ── -->
-      <div class="modal-screen" id="ms-ok-n" style="display:none;text-align:center;padding:16px 0;">
-        <div style="width:80px;height:80px;border-radius:50%;background:var(--guinda);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:36px;">🚀</div>
-        <h2 style="font-size:24px;font-weight:900;color:var(--black);margin-bottom:10px;">¡Solicitud enviada!</h2>
-        <p style="font-size:14px;color:var(--gray-600);line-height:1.7;max-width:380px;margin:0 auto 28px;">Un asesor del <strong>Instituto Hidalguense de la Juventud</strong> revisará tu perfil y te contactará en menos de <strong>48 horas</strong> por WhatsApp para completar la afiliación.</p>
-        <div style="display:flex;flex-direction:column;gap:10px;max-width:380px;margin:0 auto 28px;text-align:left;">
-          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--dorado-bg);border-radius:10px;">
-            <div style="width:26px;height:26px;border-radius:50%;background:var(--dorado);color:var(--guinda-dark);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
-            <span style="font-size:13px;font-weight:600;color:var(--black);">El asesor del IHJ te contacta por WhatsApp en 48 hrs</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--dorado-bg);border-radius:10px;">
-            <div style="width:26px;height:26px;border-radius:50%;background:var(--dorado);color:var(--guinda-dark);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
-            <span style="font-size:13px;font-weight:600;color:var(--black);">Definen juntos el beneficio y firman el convenio</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--dorado-bg);border-radius:10px;">
-            <div style="width:26px;height:26px;border-radius:50%;background:var(--dorado);color:var(--guinda-dark);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
-            <span style="font-size:13px;font-weight:600;color:var(--black);">Tu negocio aparece en el directorio oficial del programa</span>
-          </div>
-        </div>
-        <button class="btn-submit btn-submit-gold" style="max-width:300px;margin:0 auto;" onclick="closeModal()">Cerrar ✓</button>
-      </div>
-
-    </div><!-- /.modal-body -->
-  </div><!-- /.modal-wrap -->
-</div><!-- /#modal-overlay -->
-
-<!-- ══ FAQ ══ -->
-<section class="section faq-section">
-  <div class="container">
-    <div class="text-center fade-up">
-      <div class="label-tag">Preguntas frecuentes</div>
-      <h2 class="section-title">Todo lo que necesitas saber.</h2>
-      <p class="section-sub">Resolvemos tus dudas antes de que aparezcan.</p>
-    </div>
-    <div class="faq-inner">
-      <div class="faq-list fade-up">
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            ¿Quién puede obtener la Tarjeta Joven?
-            <div class="faq-icon">+</div>
-          </button>
-          <div class="faq-answer">Jóvenes de 12 a 29 años residentes en el estado de Hidalgo. Solo necesitas identificación o CURP y comprobante de residencia para el registro formal. El pre-registro solo requiere nombre, edad, municipio y WhatsApp.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            ¿Cuánto cuesta registrarse?
-            <div class="faq-icon">+</div>
-          </button>
-          <div class="faq-answer">El registro es completamente gratuito. Tarjeta Joven es un programa gubernamental sin ningún costo para el joven ni para los negocios que deseen afiliarse.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            ¿Cómo recibo mi tarjeta?
-            <div class="faq-icon">+</div>
-          </button>
-          <div class="faq-answer">Una vez validado tu registro, recibirás tu tarjeta digital directamente en tu WhatsApp en menos de 48 horas. También existe la opción de obtener una tarjeta física en módulos municipales presenciales.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            ¿Mis datos están seguros?
-            <div class="faq-icon">+</div>
-          </button>
-          <div class="faq-answer">Sí. Tus datos son protegidos conforme a la Ley de Protección de Datos Personales del Estado de Hidalgo. Solo utilizamos tu información para enviarte tu tarjeta y mantenerte informado sobre el programa.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            ¿Cómo puedo afiliar mi negocio?
-            <div class="faq-icon">+</div>
-          </button>
-          <div class="faq-answer">Llena el formulario en esta página con el nombre de tu negocio, giro, municipio y WhatsApp. Un asesor del Instituto Hidalguense de la Juventud te contactará en menos de 48 horas para completar el proceso de afiliación sin ningún costo.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CTA FINAL ══ -->
-<section class="cta-final">
-  <div class="container" style="position:relative;z-index:1;">
-    <h2 class="fade-up">Tu tarjeta te está <span>esperando.</span></h2>
-    <p class="fade-up">Regístrate hoy y empieza a ahorrar en tu municipio. Gratis, digital e inmediato.</p>
-    <div class="cta-final-btns fade-up">
-      <button class="btn btn-gold" onclick="openModal('joven')">Quiero mi Tarjeta Joven</button>
-      <button class="btn btn-outline-white" onclick="openModal('negocio')">Tengo un negocio</button>
-    </div>
-  </div>
-</section>
-
-<!-- ══ FOOTER ══ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <strong>Tarjeta Joven · Hidalgo</strong>
-        <p>Programa oficial del Instituto Hidalguense de la Juventud.<br>Gobierno del Estado de Hidalgo · 2022–2028 · Primero el Pueblo.</p>
-        <div class="footer-newsletter">
-          <input type="email" placeholder="Tu correo para recibir novedades..." id="news-email"/>
-          <button onclick="submitNewsletter()">Suscribirse</button>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h5>Programa</h5>
-        <ul>
-          <li><a href="#beneficios">Beneficios</a></li>
-          <li><a href="#como-funciona">¿Cómo funciona?</a></li>
-          <li><a href="#municipios">Municipios</a></li>
-          <li><a href="#negocios">Negocios afiliados</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Institución</h5>
-        <ul>
-          <li><a href="#">IHJ</a></li>
-          <li><a href="#">COEMERE</a></li>
-          <li><a href="#">Gobierno de Hidalgo</a></li>
-          <li><a href="#">Marco legal</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Soporte</h5>
-        <ul>
-          <li><a href="#">Preguntas frecuentes</a></li>
-          <li><a href="#">Contacto</a></li>
-          <li><a href="#">Aviso de privacidad</a></li>
-          <li><a href="#">Términos de uso</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Síguenos</h5>
-        <ul>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Twitter / X</a></li>
-          <li><a href="#">TikTok</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">Instituto Hidalguense de la Juventud © 2026. Todos los derechos reservados.</div>
-      <div class="footer-links">
-        <a href="#">Privacidad</a>
-        <a href="#">Términos</a>
-        <a href="#">Accesibilidad</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-/* ══════════════════════════════════
-   MODAL — ABRIR / CERRAR
-══════════════════════════════════ */
-function openModal(perfil) {
-  const overlay = document.getElementById('modal-overlay');
-  overlay.style.display = 'block';
-  document.body.style.overflow = 'hidden';
-  resetModal();
-  if (perfil === 'joven') {
-    showModalScreen('ms-reg-j', 1, 33);
-  } else {
-    showModalScreen('ms-reg-n', 1, 33);
-  }
-  overlay.scrollTop = 0;
-}
-
-function closeModal() {
-  document.getElementById('modal-overlay').style.display = 'none';
-  document.body.style.overflow = '';
-  resetModal();
-}
-
-function resetModal() {
-  document.querySelectorAll('.modal-screen').forEach(s => s.style.display = 'none');
-  document.querySelectorAll('.ipill').forEach(p => p.classList.remove('ipill-sel'));
-  document.querySelectorAll('.iscale').forEach(b => b.classList.remove('iscale-sel'));
-  ['j-nombre','j-edad','j-tel','n-nombre','n-tel'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = '';
-  });
-  ['j-mun','n-giro','n-mun'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.selectedIndex = 0;
-  });
-}
-
-/* cerrar al click en overlay */
-document.getElementById('modal-overlay').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
-
-/* ══════════════════════════════════
-   NAVEGACIÓN ENTRE PANTALLAS
-══════════════════════════════════ */
-function showModalScreen(id, step, pct) {
-  document.querySelectorAll('.modal-screen').forEach(s => s.style.display = 'none');
-  document.getElementById(id).style.display = 'block';
-  document.getElementById('modal-progress').style.width = pct + '%';
-  const badges = ['', 'Paso 1 de 3', 'Paso 2 de 3', 'Paso 3 de 3', '¡Listo!'];
-  document.getElementById('modal-step-badge').textContent = badges[step] || '';
-  document.getElementById('modal-overlay').scrollTop = 0;
-}
-
-/* ══════════════════════════════════
-   PILLS — SELECCIÓN
-══════════════════════════════════ */
-function pickPill(el, groupId) {
-  document.querySelectorAll('#' + groupId + ' .ipill').forEach(p => p.classList.remove('ipill-sel'));
-  el.classList.add('ipill-sel');
-}
-
-function pickMulti(el, groupId, max) {
-  const selected = document.querySelectorAll('#' + groupId + ' .ipill-sel');
-  if (el.classList.contains('ipill-sel')) {
-    el.classList.remove('ipill-sel');
-  } else {
-    if (selected.length >= max) return;
-    el.classList.add('ipill-sel');
-  }
-}
-
-function pickScale(el, groupId) {
-  document.querySelectorAll('#' + groupId + ' .iscale').forEach(b => b.classList.remove('iscale-sel'));
-  el.classList.add('iscale-sel');
-}
-
-/* ══════════════════════════════════
-   VALIDACIÓN — REGISTRO JOVEN
-══════════════════════════════════ */
-function tel10(v) { return v.replace(/\D/g,'').length >= 10; }
-
-function validateRegJ() {
-  const n = document.getElementById('j-nombre').value.trim();
-  const e = parseInt(document.getElementById('j-edad').value);
-  const t = document.getElementById('j-tel').value.trim();
-  const m = document.getElementById('j-mun').value;
-  if (!n) { alert('Por favor ingresa tu nombre.'); return; }
-  if (!e || e < 12 || e > 29) { alert('La edad debe estar entre 12 y 29 años.'); return; }
-  if (!tel10(t)) { alert('Ingresa un número de WhatsApp válido (10 dígitos).'); return; }
-  if (!m) { alert('Selecciona tu municipio.'); return; }
-  showModalScreen('ms-inst-j', 2, 66);
-}
-
-/* ══════════════════════════════════
-   VALIDACIÓN — REGISTRO NEGOCIO
-══════════════════════════════════ */
-function validateRegN() {
-  const n = document.getElementById('n-nombre').value.trim();
-  const g = document.getElementById('n-giro').value;
-  const m = document.getElementById('n-mun').value;
-  const t = document.getElementById('n-tel').value.trim();
-  if (!n) { alert('Ingresa el nombre del negocio.'); return; }
-  if (!g) { alert('Selecciona el giro.'); return; }
-  if (!m) { alert('Selecciona el municipio.'); return; }
-  if (!tel10(t)) { alert('Ingresa un WhatsApp válido (10 dígitos).'); return; }
-  showModalScreen('ms-inst-n', 2, 66);
-}
-
-/* ══════════════════════════════════
-   CONFIRMACIÓN — JOVEN
-══════════════════════════════════ */
-function goConfirmJ() {
-  document.getElementById('cj-nombre').textContent = document.getElementById('j-nombre').value || '—';
-  document.getElementById('cj-edad').textContent = document.getElementById('j-edad').value ? document.getElementById('j-edad').value + ' años' : '—';
-  document.getElementById('cj-tel').textContent = document.getElementById('j-tel').value || '—';
-  document.getElementById('cj-mun').textContent = document.getElementById('j-mun').value || '—';
-  const perf = document.querySelector('#ij-perfil .ipill-sel');
-  const bens = [...document.querySelectorAll('#ij-beneficios .ipill-sel')].map(p => p.textContent.trim()).join(', ');
-  const frec = document.querySelector('#ij-frecuencia .ipill-sel');
-  let parts = [];
-  if (perf) parts.push(perf.textContent);
-  if (bens) parts.push('Intereses: ' + bens);
-  if (frec) parts.push('Frecuencia: ' + frec.textContent);
-  document.getElementById('cj-perfil').textContent = parts.length
-    ? parts.join(' · ')
-    : 'Tu información ayudará a personalizar los negocios afiliados cerca de ti.';
-  showModalScreen('ms-conf-j', 3, 90);
-}
-
-/* ══════════════════════════════════
-   CONFIRMACIÓN — NEGOCIO
-══════════════════════════════════ */
-function goConfirmN() {
-  document.getElementById('cn-nombre').textContent = document.getElementById('n-nombre').value || '—';
-  document.getElementById('cn-giro').textContent = document.getElementById('n-giro').value || '—';
-  document.getElementById('cn-tel').textContent = document.getElementById('n-tel').value || '—';
-  document.getElementById('cn-mun').textContent = document.getElementById('n-mun').value || '—';
-  const tam = document.querySelector('#in-tamano .ipill-sel');
-  const dig = document.querySelector('#in-digital .ipill-sel');
-  const cli = document.querySelector('#in-clientes .iscale-sel');
-  let parts = [];
-  if (tam) parts.push(tam.textContent);
-  if (dig) parts.push(dig.textContent);
-  if (cli) parts.push('Clientes jóvenes/semana: ' + cli.textContent);
-  document.getElementById('cn-perfil').textContent = parts.length
-    ? parts.join(' · ') + ' — Un asesor del IHJ te contactará para completar el proceso.'
-    : 'Un asesor del IHJ revisará tu perfil y te contactará para completar el proceso.';
-  showModalScreen('ms-conf-n', 3, 90);
-}
-
-/* ══════════════════════════════════
-   SUBMIT FINAL
-══════════════════════════════════ */
-function finalSubmitJ() {
-  showModalScreen('ms-ok-j', 4, 100);
-  document.getElementById('modal-step-badge').textContent = '¡Listo!';
-}
-
-function finalSubmitN() {
-  showModalScreen('ms-ok-n', 4, 100);
-  document.getElementById('modal-step-badge').textContent = '¡Enviado!';
-}
-
-/* ══════════════════════════════════
-   NEWSLETTER
-══════════════════════════════════ */
-function submitNewsletter() {
-  const e = document.getElementById('news-email').value.trim();
-  if (!e || !e.includes('@')) { alert('Ingresa un correo válido.'); return; }
-  alert('¡Suscrito! Te mantendremos informado sobre Tarjeta Joven.');
-  document.getElementById('news-email').value = '';
-}
-
-/* ══════════════════════════════════
-   FAQ ACCORDION
-══════════════════════════════════ */
-function toggleFaq(btn) {
-  const item = btn.parentElement;
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
-}
-
-/* ══════════════════════════════════
-   CTA FINAL — scroll al modal
-══════════════════════════════════ */
-document.querySelectorAll('.cta-final-btns .btn').forEach((btn, i) => {
-  btn.addEventListener('click', () => openModal(i === 0 ? 'joven' : 'negocio'));
-});
-
-/* ══════════════════════════════════
-   SCROLL ANIMATIONS
-══════════════════════════════════ */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
+</div>
 </body>
 </html>

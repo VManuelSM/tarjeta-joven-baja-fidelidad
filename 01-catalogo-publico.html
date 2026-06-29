@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>01 · Catálogo Público — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Público:</span>
+  <a href="01-catalogo-publico.html" class="current">01 Catálogo</a>
+  <a href="00-login.html">00 Login</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Joven:</span>
+  <a href="02-registro-joven.html">02 Registro</a>
+  <a href="04-perfil-joven.html">04 Perfil</a>
+  <a href="05-catalogo-auth.html">05 Catálogo Auth</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Comercio:</span>
+  <a href="07-registro-comercio.html">07 Registro</a>
+  <a href="08-dashboard-comercio.html">08 Dashboard</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Admin:</span>
+  <a href="10-admin-dashboard.html">10 Dashboard</a>
+</nav>
+
+<div class="page">
+  <div class="page-title-bar">
+    <span class="page-label">01 · Catálogo Público (sin sesión)</span>
+  </div>
+
+  <div class="device">
+    <div class="screen">
+      <div class="sbar">
+        <span>9:41</span>
+        <span>●●● 100%</span>
+      </div>
+
+      <!-- Navbar -->
+      <div class="navbar brand">
+        <div class="nav-logo">TARJETA JOVEN</div>
+        <div class="nav-spacer"></div>
+        <a href="00-login.html" class="nav-action">Iniciar sesión</a>
+      </div>
+
+      <!-- Hero -->
+      <div class="hero">
+        <h1>Descuentos y beneficios para jóvenes de Hidalgo</h1>
+        <p>Más de 50 comercios afiliados en todo el estado</p>
+        <a href="02-registro-joven.html" class="btn btn-outline-w" style="width:auto;padding:0 24px;height:44px;margin:0 auto;">Solicitar mi Tarjeta Joven</a>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <div class="tab active">Todos</div>
+        <div class="tab">Alimentación</div>
+        <div class="tab">Salud</div>
+        <div class="tab">Educación</div>
+        <div class="tab">Cultura</div>
+        <div class="tab">Recreación</div>
+        <div class="tab">Innovación</div>
+      </div>
+
+      <div class="content">
+        <!-- Search -->
+        <div class="searchbar">
+          <div class="search-ico"></div>
+          <input class="search-inp" placeholder="Buscar comercio o descuento..." />
+          <select style="border:none;background:none;font-size:12px;color:var(--text-3);outline:none;">
+            <option>Pachuca</option>
+            <option>Tulancingo</option>
+            <option>Todo Hidalgo</option>
+          </select>
+        </div>
+
+        <!-- Resultado count -->
+        <div class="text-sm text-muted mb-12">52 descuentos disponibles</div>
+
+        <!-- Card 1 — LOCKED -->
+        <div class="dc dc-lock-wrap">
+          <div class="dc-img">Imagen del comercio</div>
+          <div class="dc-body locked">
+            <div class="dc-pct">20% de descuento</div>
+            <div class="dc-name">Farmacia San Rafael</div>
+            <div class="dc-biz">Salud · Pachuca de Soto</div>
+            <div style="font-size:11px;color:var(--text-3);margin-top:6px;">Válido lunes a viernes · Vigente hasta dic 2026</div>
+          </div>
+          <div class="dc-lock-overlay" style="top:110px;">
+            <div class="lock-ico">🔒</div>
+            <div style="font-size:12px;font-weight:700;color:var(--text-2);">Activa tu Tarjeta Joven</div>
+            <div style="font-size:11px;color:var(--text-3);text-align:center;max-width:160px;">para ver los detalles de este beneficio</div>
+            <a href="02-registro-joven.html" class="btn btn-primary btn-sm mt-8" style="height:32px;">Registrarme gratis</a>
+          </div>
+        </div>
+
+        <!-- Card 2 — LOCKED -->
+        <div class="dc dc-lock-wrap">
+          <div class="dc-img">Imagen del comercio</div>
+          <div class="dc-body locked">
+            <div class="dc-pct">15% de descuento</div>
+            <div class="dc-name">Librería El Estudiante</div>
+            <div class="dc-biz">Educación · Tulancingo</div>
+            <div style="font-size:11px;color:var(--text-3);margin-top:6px;">Aplica en libros y material escolar · Todo el año</div>
+          </div>
+          <div class="dc-lock-overlay" style="top:110px;">
+            <div class="lock-ico">🔒</div>
+            <div style="font-size:12px;font-weight:700;color:var(--text-2);">Activa tu Tarjeta Joven</div>
+            <div style="font-size:11px;color:var(--text-3);text-align:center;max-width:160px;">para ver los detalles de este beneficio</div>
+            <a href="02-registro-joven.html" class="btn btn-primary btn-sm mt-8" style="height:32px;">Registrarme gratis</a>
+          </div>
+        </div>
+
+        <!-- Card 3 — LOCKED -->
+        <div class="dc dc-lock-wrap">
+          <div class="dc-img">Imagen del comercio</div>
+          <div class="dc-body locked">
+            <div class="dc-pct">2x1 en entradas</div>
+            <div class="dc-name">Cineteca Hidalgo</div>
+            <div class="dc-biz">Recreación · Pachuca de Soto</div>
+            <div style="font-size:11px;color:var(--text-3);margin-top:6px;">Martes y jueves · Vigente hasta jun 2026</div>
+          </div>
+          <div class="dc-lock-overlay" style="top:110px;">
+            <div class="lock-ico">🔒</div>
+            <div style="font-size:12px;font-weight:700;color:var(--text-2);">Activa tu Tarjeta Joven</div>
+            <div style="font-size:11px;color:var(--text-3);text-align:center;max-width:160px;">para ver los detalles de este beneficio</div>
+            <a href="02-registro-joven.html" class="btn btn-primary btn-sm mt-8" style="height:32px;">Registrarme gratis</a>
+          </div>
+        </div>
+
+        <!-- CTA bottom -->
+        <div style="background:var(--brand);border-radius:14px;padding:18px;text-align:center;color:white;margin-top:4px;">
+          <div style="font-size:14px;font-weight:700;margin-bottom:4px;">¿Ya tienes tu Tarjeta Joven?</div>
+          <div style="font-size:12px;opacity:.8;margin-bottom:12px;">Inicia sesión para desbloquear todos los descuentos</div>
+          <a href="00-login.html" class="btn btn-outline-w" style="height:40px;width:auto;padding:0 20px;font-size:13px;margin:0 auto;">Iniciar sesión</a>
+        </div>
+
+        <!-- Separador comercios -->
+        <div class="divider mt-20"></div>
+        <div style="text-align:center;font-size:12px;color:var(--text-3);">
+          ¿Tienes un negocio? <a href="07-registro-comercio.html" style="color:var(--brand);font-weight:700;">Afilíate al programa</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="annot">
+    <strong>Notas UX:</strong> El catálogo es visible para todos pero el detalle del descuento está bloqueado.
+    El overlay con blur comunica que el contenido existe pero requiere registro — genera incentivo sin frustrar.
+    Las categorías son tabs horizontales scrolleables (mobile-friendly).
+    El filtro de municipio está integrado en la barra de búsqueda para no agregar complejidad.
+  </div>
+</div>
+</body>
+</html>

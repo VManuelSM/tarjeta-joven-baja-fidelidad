@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>05 · Catálogo Autenticado — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <a href="01-catalogo-publico.html">01 Catálogo Público</a>
+  <a href="04-perfil-joven.html">04 Perfil</a>
+  <a href="05-catalogo-auth.html" class="current">05 Catálogo Auth</a>
+  <a href="06-detalle-descuento.html">06 Detalle</a>
+  <span class="topnav-sep">|</span>
+  <a href="10-admin-dashboard.html">10 Admin</a>
+</nav>
+
+<div class="page">
+  <div class="page-title-bar">
+    <span class="page-label">05 · Catálogo (Joven autenticado con tarjeta activa)</span>
+  </div>
+
+  <div class="device">
+    <div class="screen">
+      <div class="sbar"></div>
+
+      <div class="navbar brand">
+        <span class="nav-logo">TARJETA JOVEN</span>
+        <div class="nav-spacer"></div>
+        <a href="04-perfil-joven.html" class="nav-action">MG</a>
+      </div>
+
+      <!-- Aviso de cómo usar -->
+      <div style="background:#EEF4FF;border-bottom:1px solid #C4D9F5;padding:10px 16px;font-size:12px;color:var(--brand);display:flex;align-items:center;gap:8px;flex-shrink:0;">
+        <span>💳</span>
+        <span><strong>Recuerda:</strong> Presenta tu Tarjeta Joven física en el establecimiento para obtener tu descuento.</span>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <div class="tab active">Todos</div>
+        <div class="tab">Alimentación</div>
+        <div class="tab">Salud</div>
+        <div class="tab">Educación</div>
+        <div class="tab">Cultura</div>
+        <div class="tab">Recreación</div>
+        <div class="tab">Innovación</div>
+      </div>
+
+      <div class="content">
+
+        <!-- Search -->
+        <div class="searchbar">
+          <div class="search-ico"></div>
+          <input class="search-inp" placeholder="Buscar comercio o descuento..." />
+          <select style="border:none;background:none;font-size:12px;color:var(--text-3);outline:none;">
+            <option>Pachuca</option>
+            <option>Todo Hidalgo</option>
+          </select>
+        </div>
+
+        <div class="text-sm text-muted mb-12">52 descuentos disponibles</div>
+
+        <!-- Card 1 — UNLOCKED -->
+        <a href="06-detalle-descuento.html" style="text-decoration:none;display:block;" class="dc">
+          <div class="dc-img">Imagen del comercio</div>
+          <div class="dc-body">
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge b-brand">Salud</span>
+              <span class="text-xs text-muted">Pachuca</span>
+            </div>
+            <div class="dc-pct">20% de descuento</div>
+            <div class="dc-name">Farmacia San Rafael</div>
+            <div class="dc-biz">En medicamentos genéricos</div>
+            <div class="divider" style="margin:10px 0;"></div>
+            <div class="text-xs text-muted">📅 Válido hasta dic 2026 &nbsp;·&nbsp; Lun–Vie</div>
+          </div>
+        </a>
+
+        <!-- Card 2 — UNLOCKED -->
+        <a href="06-detalle-descuento.html" style="text-decoration:none;display:block;" class="dc">
+          <div class="dc-img">Imagen del comercio</div>
+          <div class="dc-body">
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge b-brand">Educación</span>
+              <span class="text-xs text-muted">Tulancingo</span>
+            </div>
+            <div class="dc-pct">15% de descuento</div>
+            <div class="dc-name">Librería El Estudiante</div>
+            <div class="dc-biz">En libros y material escolar</div>
+            <div class="divider" style="margin:10px 0;"></div>
+            <div class="text-xs text-muted">📅 Todo el año &nbsp;·&nbsp; Lun–Sáb</div>
+          </div>
+        </a>
+
+        <!-- Card 3 — UNLOCKED -->
+        <a href="06-detalle-descuento.html" style="text-decoration:none;display:block;" class="dc">
+          <div class="dc-img">Imagen del comercio</div>
+          <div class="dc-body">
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge b-brand">Recreación</span>
+              <span class="text-xs text-muted">Pachuca</span>
+            </div>
+            <div class="dc-pct">2×1 en entradas</div>
+            <div class="dc-name">Cineteca Hidalgo</div>
+            <div class="dc-biz">Martes y jueves en funciones vespertinas</div>
+            <div class="divider" style="margin:10px 0;"></div>
+            <div class="text-xs text-muted">📅 Vigente hasta jun 2026</div>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="06-detalle-descuento.html" style="text-decoration:none;display:block;" class="dc">
+          <div class="dc-img">Imagen del comercio</div>
+          <div class="dc-body">
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge b-brand">Alimentación</span>
+              <span class="text-xs text-muted">Pachuca</span>
+            </div>
+            <div class="dc-pct">10% de descuento</div>
+            <div class="dc-name">Panadería La Hidalguense</div>
+            <div class="dc-biz">En pan artesanal y repostería</div>
+            <div class="divider" style="margin:10px 0;"></div>
+            <div class="text-xs text-muted">📅 Todo el año &nbsp;·&nbsp; Todos los días</div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Bottom nav -->
+      <div class="bnav">
+        <a href="05-catalogo-auth.html" class="bnav-item active">
+          <div class="bnav-icon"></div>
+          <span>Descuentos</span>
+        </a>
+        <a href="04-perfil-joven.html" class="bnav-item">
+          <div class="bnav-icon"></div>
+          <span>Mi Tarjeta</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="annot">
+    <strong>Notas UX:</strong> La diferencia clave con el catálogo público (01) es que aquí los detalles del descuento están completamente visibles.
+    La barra de recordatorio "Presenta tu Tarjeta Joven" es persistente — refuerza el mecanismo de canje sin necesidad de sistema digital en punto de venta.
+    Las cards son links que llevan al detalle completo del descuento.
+    El avatar del usuario (iniciales "MG") en el navbar da confirmación visual de que hay sesión activa.
+  </div>
+</div>
+</body>
+</html>

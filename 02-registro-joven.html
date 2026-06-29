@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>02 · Registro Joven — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <a href="01-catalogo-publico.html">01 Catálogo</a>
+  <a href="00-login.html">00 Login</a>
+  <span class="topnav-sep">|</span>
+  <a href="02-registro-joven.html" class="current">02 Registro Joven</a>
+  <a href="03-pendiente.html">03 Pendiente</a>
+  <a href="04-perfil-joven.html">04 Perfil</a>
+  <a href="05-catalogo-auth.html">05 Catálogo Auth</a>
+  <a href="06-detalle-descuento.html">06 Detalle</a>
+  <span class="topnav-sep">|</span>
+  <a href="07-registro-comercio.html">07 Reg. Comercio</a>
+  <a href="10-admin-dashboard.html">10 Admin</a>
+</nav>
+
+<div class="page">
+  <div class="page-title-bar">
+    <span class="page-label">02 · Registro Joven</span>
+  </div>
+
+  <div class="device">
+    <div class="screen">
+      <div class="sbar"></div>
+
+      <div class="navbar">
+        <a href="01-catalogo-publico.html" class="back-btn">←</a>
+        <span class="nav-title">Solicitar Tarjeta Joven</span>
+      </div>
+
+      <div class="content">
+
+        <!-- Steps -->
+        <div class="steps">
+          <div class="step-dot active">1</div>
+          <div class="step-line"></div>
+          <div class="step-dot">2</div>
+          <div class="step-line"></div>
+          <div class="step-dot">3</div>
+        </div>
+        <div class="flex justify-between text-xs text-muted mb-20" style="margin-top:-14px;">
+          <span style="color:var(--brand);font-weight:700;">Datos personales</span>
+          <span>Acceso</span>
+          <span>Confirmación</span>
+        </div>
+
+        <!-- Avatar upload -->
+        <div style="text-align:center;margin-bottom:20px;">
+          <div style="width:80px;height:80px;border-radius:50%;background:var(--ph);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:28px;border:2px dashed var(--border);cursor:pointer;">+</div>
+          <div class="text-xs text-muted">Foto de perfil (opcional)</div>
+        </div>
+
+        <div class="fg">
+          <label class="lbl">Nombre completo *</label>
+          <input class="inp" placeholder="Nombre(s) y apellidos" />
+        </div>
+
+        <div class="fg">
+          <label class="lbl">CURP *</label>
+          <input class="inp" placeholder="XXXX000000XXXXXX00" style="text-transform:uppercase;font-family:monospace;" />
+          <div class="text-xs text-muted mt-4">El IHJ usará tu CURP para validar tu identidad.</div>
+        </div>
+
+        <div class="fg-row">
+          <div class="fg">
+            <label class="lbl">Fecha de nacimiento *</label>
+            <input class="inp" type="date" />
+          </div>
+          <div class="fg">
+            <label class="lbl">Municipio *</label>
+            <select class="sel">
+              <option value="">Seleccionar</option>
+              <option>Pachuca de Soto</option>
+              <option>Mineral de la Reforma</option>
+              <option>Tulancingo</option>
+              <option>Tizayuca</option>
+              <option>Actopan</option>
+              <option>Ixmiquilpan</option>
+              <option>Otro municipio...</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label class="lbl">Correo electrónico *</label>
+          <input class="inp" type="email" placeholder="ejemplo@correo.com" />
+        </div>
+
+        <div class="fg">
+          <label class="lbl">Teléfono celular</label>
+          <input class="inp" type="tel" placeholder="771 000 0000" />
+        </div>
+
+        <!-- Info note -->
+        <div class="banner" style="margin-top:4px;margin-bottom:20px;">
+          ℹ️ El IHJ revisará tu solicitud y te notificará por correo en un plazo de <strong>3 a 5 días hábiles</strong>.
+        </div>
+
+        <a href="03-pendiente.html" class="btn btn-primary">Continuar →</a>
+
+        <div style="text-align:center;margin-top:14px;">
+          <span class="text-sm text-muted">¿Ya tienes cuenta? </span>
+          <a href="00-login.html" style="font-size:13px;color:var(--brand);font-weight:700;text-decoration:none;">Inicia sesión</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="annot">
+    <strong>Notas UX:</strong> El formulario se divide en 3 pasos para no abrumar (paso 2 = contraseña, paso 3 = confirmación y folio).
+    La foto es opcional para reducir fricciones de entrada — el IHJ puede solicitarla después.
+    El campo CURP es crítico para validación y tiene formato monospace para facilitar lectura.
+    Los campos marcados con * son obligatorios. Se muestra aviso claro de tiempos de revisión.
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>03 · Pendiente — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <a href="01-catalogo-publico.html">01 Catálogo</a>
+  <a href="02-registro-joven.html">02 Registro</a>
+  <a href="03-pendiente.html" class="current">03 Pendiente</a>
+  <a href="04-perfil-joven.html">04 Perfil</a>
+  <a href="05-catalogo-auth.html">05 Catálogo Auth</a>
+  <span class="topnav-sep">|</span>
+  <a href="11-admin-jovenes.html">11 Admin Jóvenes</a>
+</nav>
+
+<div class="page">
+  <div class="page-title-bar">
+    <span class="page-label">03 · Estado pendiente de aprobación (Joven)</span>
+  </div>
+
+  <div class="device">
+    <div class="screen">
+      <div class="sbar"></div>
+
+      <div class="navbar">
+        <span class="nav-logo">TARJETA JOVEN</span>
+        <div class="nav-spacer"></div>
+      </div>
+
+      <div class="content" style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:40px;">
+
+        <!-- Illustration placeholder -->
+        <div style="width:100px;height:100px;border-radius:50%;background:var(--pend-bg);border:3px solid #F5D78A;display:flex;align-items:center;justify-content:center;font-size:42px;margin-bottom:24px;">⏳</div>
+
+        <div style="font-size:20px;font-weight:800;margin-bottom:8px;">¡Solicitud enviada!</div>
+        <div style="font-size:14px;color:var(--text-2);max-width:280px;line-height:1.6;margin-bottom:24px;">
+          El IHJ está revisando tu información. Te notificaremos por correo cuando tu Tarjeta Joven esté activa.
+        </div>
+
+        <!-- Folio -->
+        <div style="background:var(--ph);border-radius:12px;padding:16px 24px;margin-bottom:24px;width:100%;">
+          <div class="text-xs text-muted mb-4">Número de folio</div>
+          <div style="font-size:20px;font-weight:800;color:var(--brand);font-family:monospace;letter-spacing:2px;">TJ-2026-00847</div>
+          <div class="text-xs text-muted mt-4">Guarda este número para dar seguimiento a tu solicitud</div>
+        </div>
+
+        <!-- Steps de qué esperar -->
+        <div style="text-align:left;width:100%;margin-bottom:28px;">
+          <div class="stitle">¿Qué sigue?</div>
+
+          <div class="li">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--ok-bg);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</div>
+            <div class="li-body">
+              <div class="li-title text-sm">Solicitud recibida</div>
+              <div class="li-sub">Hoy, 26 de junio 2026</div>
+            </div>
+          </div>
+
+          <div class="li">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--pend-bg);display:flex;align-items:center;justify-content:circle;flex-shrink:0;border:2px dashed #F5D78A;"></div>
+            <div class="li-body">
+              <div class="li-title text-sm">El IHJ revisa tus datos</div>
+              <div class="li-sub">En los próximos 3–5 días hábiles</div>
+            </div>
+          </div>
+
+          <div class="li">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--ph);display:flex;align-items:center;flex-shrink:0;border:2px dashed var(--border);"></div>
+            <div class="li-body">
+              <div class="li-title text-sm">Recibes notificación por correo</div>
+              <div class="li-sub">con tu Tarjeta Joven activa</div>
+            </div>
+          </div>
+        </div>
+
+        <a href="04-perfil-joven.html" class="btn btn-primary mb-12" style="background:var(--text-3);">Ver mi perfil (pendiente)</a>
+        <a href="01-catalogo-publico.html" class="btn btn-outline">Explorar el catálogo</a>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="annot">
+    <strong>Notas UX:</strong> El estado pendiente comunica claramente lo que va a pasar y cuándo.
+    El número de folio permite al joven dar seguimiento o llamar al IHJ sin necesidad de sistemas adicionales en MVP.
+    El botón de explorar catálogo mantiene al usuario activo e interesado mientras espera la aprobación.
+    <strong>Estado pendiente en perfil:</strong> si el joven inicia sesión antes de ser aprobado, ve esta misma pantalla (no el perfil activo).
+  </div>
+</div>
+</body>
+</html>

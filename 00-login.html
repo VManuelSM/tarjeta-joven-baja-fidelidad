@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>00 · Login — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Público:</span>
+  <a href="01-catalogo-publico.html">01 Catálogo</a>
+  <a href="00-login.html" class="current">00 Login</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Joven:</span>
+  <a href="02-registro-joven.html">02 Registro</a>
+  <a href="03-pendiente.html">03 Pendiente</a>
+  <a href="04-perfil-joven.html">04 Perfil</a>
+  <a href="05-catalogo-auth.html">05 Catálogo Auth</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Comercio:</span>
+  <a href="07-registro-comercio.html">07 Registro</a>
+  <a href="08-dashboard-comercio.html">08 Dashboard</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Admin:</span>
+  <a href="10-admin-dashboard.html">10 Dashboard</a>
+</nav>
+
+<div class="page">
+  <div class="page-title-bar">
+    <span class="page-label">00 · Pantalla de Acceso</span>
+  </div>
+
+  <div class="device">
+    <div class="screen">
+      <div class="sbar dark"></div>
+
+      <!-- Logo area -->
+      <div style="background:var(--brand);padding:40px 24px 32px;text-align:center;color:white;">
+        <div style="width:72px;height:72px;background:rgba(255,255,255,0.15);border-radius:18px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:28px;">🪪</div>
+        <div style="font-size:20px;font-weight:800;margin-bottom:4px;">Tarjeta Joven Hidalgo</div>
+        <div style="font-size:13px;opacity:.75;">Beneficios para jóvenes de Hidalgo</div>
+      </div>
+
+      <div class="content" style="padding-top:28px;">
+
+        <!-- Login form -->
+        <div class="fg">
+          <label class="lbl">Correo electrónico</label>
+          <input class="inp" type="email" placeholder="ejemplo@correo.com" />
+        </div>
+        <div class="fg">
+          <label class="lbl">Contraseña</label>
+          <input class="inp" type="password" placeholder="••••••••" />
+        </div>
+
+        <div class="flex justify-between items-center mb-16" style="margin-top:4px;">
+          <span></span>
+          <a href="#" style="font-size:12px;color:var(--brand);text-decoration:none;font-weight:600;">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <a href="05-catalogo-auth.html" class="btn btn-primary mb-12">Iniciar sesión</a>
+
+        <div class="divider" style="display:flex;align-items:center;gap:10px;font-size:12px;color:var(--text-3);">
+          <span style="flex:1;height:1px;background:var(--border);"></span>
+          <span>o</span>
+          <span style="flex:1;height:1px;background:var(--border);"></span>
+        </div>
+
+        <div style="margin-top:16px;">
+          <div style="font-size:13px;font-weight:700;text-align:center;margin-bottom:14px;color:var(--text-2);">¿Eres nuevo aquí?</div>
+
+          <a href="02-registro-joven.html" class="btn btn-outline mb-12" style="margin-bottom:10px;">
+            Solicitar mi Tarjeta Joven
+          </a>
+          <a href="07-registro-comercio.html" class="btn" style="background:#F0F4FF;color:var(--brand);border:1.5px solid #C4D9F5;">
+            Afiliar mi negocio
+          </a>
+        </div>
+
+        <div style="text-align:center;margin-top:24px;">
+          <a href="01-catalogo-publico.html" style="font-size:12px;color:var(--text-3);text-decoration:none;">
+            Ver catálogo sin iniciar sesión →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="annot">
+    <strong>Notas UX:</strong> El login es único para jóvenes y comercios — el sistema distingue el rol por el tipo de cuenta.
+    El link "Ver catálogo sin iniciar sesión" mantiene la experiencia pública como punto de entrada alternativo.
+    Los botones de registro están diferenciados para no generar confusión entre flujos.
+  </div>
+</div>
+</body>
+</html>

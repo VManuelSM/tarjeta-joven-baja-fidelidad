@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>09 · Alta Descuento — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <a href="08-dashboard-comercio.html">08 Dashboard</a>
+  <a href="09-alta-descuento.html" class="current">09 Alta Descuento</a>
+  <span class="topnav-sep">|</span>
+  <a href="13-admin-descuentos.html">13 Admin Descuentos</a>
+</nav>
+
+<div class="page">
+  <div class="page-title-bar">
+    <span class="page-label">09 · Alta de descuento (comercio)</span>
+  </div>
+
+  <div class="device">
+    <div class="screen">
+      <div class="sbar"></div>
+
+      <div class="navbar">
+        <a href="08-dashboard-comercio.html" class="back-btn">←</a>
+        <span class="nav-title">Nuevo descuento</span>
+      </div>
+
+      <div class="content">
+
+        <div class="banner mb-20">
+          ℹ️ El IHJ revisará y aprobará tu descuento antes de que aparezca en el catálogo. El proceso toma <strong>3 a 5 días hábiles</strong>.
+        </div>
+
+        <div class="fg">
+          <label class="lbl">Nombre del descuento *</label>
+          <input class="inp" placeholder="Ej: 20% en medicamentos genéricos" />
+          <div class="text-xs text-muted mt-4">Sé claro y específico — esto es lo que verán los jóvenes en el catálogo.</div>
+        </div>
+
+        <div class="fg">
+          <label class="lbl">Categoría *</label>
+          <select class="sel">
+            <option value="">Seleccionar</option>
+            <option>Alimentación y bebidas</option>
+            <option selected>Salud y bienestar</option>
+            <option>Educación y capacitación</option>
+            <option>Cultura y entretenimiento</option>
+            <option>Recreación y deporte</option>
+            <option>Servicios personales</option>
+            <option>Innovación y emprendimiento</option>
+          </select>
+        </div>
+
+        <!-- Tipo de beneficio -->
+        <div class="fg">
+          <label class="lbl">Tipo de beneficio *</label>
+          <div style="display:flex;gap:10px;margin-bottom:10px;">
+            <label style="flex:1;display:flex;align-items:center;gap:8px;padding:12px;border:1.5px solid var(--brand);border-radius:10px;cursor:pointer;font-size:13px;font-weight:600;color:var(--brand);">
+              <input type="radio" name="tipo" checked style="accent-color:var(--brand);" /> % Porcentaje
+            </label>
+            <label style="flex:1;display:flex;align-items:center;gap:8px;padding:12px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;font-size:13px;color:var(--text-2);">
+              <input type="radio" name="tipo" style="accent-color:var(--brand);" /> Descripción libre
+            </label>
+          </div>
+        </div>
+
+        <div class="fg-row">
+          <div class="fg">
+            <label class="lbl">Porcentaje de descuento *</label>
+            <input class="inp" type="number" placeholder="20" style="font-size:18px;font-weight:700;" />
+            <div class="text-xs text-muted mt-4">Ejemplo: 20 = 20% de descuento</div>
+          </div>
+          <div class="fg" style="display:flex;flex-direction:column;justify-content:flex-end;">
+            <div style="font-size:36px;font-weight:800;color:var(--brand);text-align:center;padding-bottom:10px;">%</div>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label class="lbl">Aplica en (qué productos o servicios) *</label>
+          <input class="inp" placeholder="Ej: Medicamentos genéricos, vitaminas..." />
+        </div>
+
+        <div class="fg">
+          <label class="lbl">Condiciones del descuento</label>
+          <textarea class="textarea" placeholder="Ej: Válido de lunes a viernes, no combinable con otras promociones, requiere presentar Tarjeta Joven física..."></textarea>
+        </div>
+
+        <div class="fg-row">
+          <div class="fg">
+            <label class="lbl">Fecha de inicio *</label>
+            <input class="inp" type="date" />
+          </div>
+          <div class="fg">
+            <label class="lbl">Fecha de fin *</label>
+            <input class="inp" type="date" />
+          </div>
+        </div>
+
+        <div class="fg">
+          <label class="lbl">Imagen del descuento (opcional)</label>
+          <div class="upload-zone">
+            <span style="font-size:20px;">📷</span>
+            <span>Toca para subir una imagen<br><span class="text-xs">JPG o PNG, máx. 2 MB</span></span>
+          </div>
+          <div class="text-xs text-muted mt-4">Puede ser el logo de tu negocio o una foto del producto/servicio.</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <a href="08-dashboard-comercio.html" class="btn btn-primary mt-8">Enviar a revisión del IHJ</a>
+        <a href="08-dashboard-comercio.html" class="btn btn-outline mt-12" style="height:44px;font-size:14px;color:var(--text-2);border-color:var(--border);">Cancelar</a>
+
+      </div>
+
+      <div class="bnav">
+        <a href="08-dashboard-comercio.html" class="bnav-item active">
+          <div class="bnav-icon"></div>
+          <span>Mis Descuentos</span>
+        </a>
+        <a href="#" class="bnav-item">
+          <div class="bnav-icon"></div>
+          <span>Mi Negocio</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="annot">
+    <strong>Notas UX:</strong> El tipo de beneficio tiene dos modos: porcentaje (el más común) y descripción libre (para beneficios como 2×1 o prueba gratis).
+    Las fechas de inicio y fin son obligatorias — el sistema debe desactivar automáticamente cuando venza la vigencia.
+    La imagen es opcional para no bloquear a negocios pequeños sin recursos gráficos.
+    El botón "Enviar a revisión" — no "Publicar" — comunica que hay un paso de moderación intermedio.
+    Al enviar, el comercio vuelve al dashboard y ve el descuento en estado "Pendiente de revisión" (pantalla 08).
+  </div>
+</div>
+</body>
+</html>

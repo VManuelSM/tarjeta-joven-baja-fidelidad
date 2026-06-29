@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>04 · Perfil Joven — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <a href="01-catalogo-publico.html">01 Catálogo</a>
+  <a href="03-pendiente.html">03 Pendiente</a>
+  <a href="04-perfil-joven.html" class="current">04 Perfil Joven</a>
+  <a href="05-catalogo-auth.html">05 Catálogo Auth</a>
+  <a href="06-detalle-descuento.html">06 Detalle</a>
+  <span class="topnav-sep">|</span>
+  <a href="11-admin-jovenes.html">11 Admin Jóvenes</a>
+</nav>
+
+<div class="page">
+  <div class="page-title-bar">
+    <span class="page-label">04 · Perfil del joven (tarjeta activa)</span>
+  </div>
+
+  <div class="device">
+    <div class="screen">
+      <div class="sbar dark"></div>
+
+      <div class="navbar brand">
+        <span class="nav-logo">TARJETA JOVEN</span>
+        <div class="nav-spacer"></div>
+        <a href="#" class="nav-action">Cerrar sesión</a>
+      </div>
+
+      <div class="content">
+
+        <!-- Tarjeta visual -->
+        <div class="tarjeta">
+          <div class="t-tag">TARJETA JOVEN · HIDALGO · IHJ</div>
+          <div class="t-name">María González López</div>
+          <div class="t-curp">CURP: GOLM020514MHGRZR02</div>
+          <div class="t-row">
+            <div>
+              <div class="t-id">TJ-2026-00847</div>
+              <div style="font-size:10px;opacity:.55;margin-top:3px;">Vigencia: Jun 2026 – Jun 2027</div>
+            </div>
+            <div class="t-status">✓ ACTIVA</div>
+          </div>
+        </div>
+
+        <!-- Avatar + nombre + editar -->
+        <div class="flex items-center gap-12 mb-20">
+          <div class="avatar" style="width:60px;height:60px;font-size:22px;border:2px solid var(--border);">MG</div>
+          <div style="flex:1;">
+            <div style="font-size:16px;font-weight:700;">María González López</div>
+            <div class="text-sm text-muted">Joven beneficiaria activa</div>
+          </div>
+          <a href="#" style="font-size:12px;color:var(--brand);font-weight:700;text-decoration:none;">Editar</a>
+        </div>
+
+        <!-- Datos -->
+        <div class="stitle">Mis datos</div>
+        <div class="card card-pad mb-16">
+          <div class="ir">
+            <span class="ir-lbl">CURP</span>
+            <span class="ir-val" style="font-family:monospace;font-size:12px;">GOLM020514MHGRZR02</span>
+          </div>
+          <div class="ir">
+            <span class="ir-lbl">Municipio</span>
+            <span class="ir-val">Pachuca de Soto</span>
+          </div>
+          <div class="ir">
+            <span class="ir-lbl">Teléfono</span>
+            <span class="ir-val">771 234 5678</span>
+          </div>
+          <div class="ir">
+            <span class="ir-lbl">Correo</span>
+            <span class="ir-val" style="font-size:13px;">m.gonzalez@correo.com</span>
+          </div>
+          <div class="ir">
+            <span class="ir-lbl">Estatus</span>
+            <span class="badge b-ok">✓ Activa</span>
+          </div>
+          <div class="ir">
+            <span class="ir-lbl">Vigencia</span>
+            <span class="ir-val">Junio 2026 – Junio 2027</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <a href="05-catalogo-auth.html" class="btn btn-primary mb-12">Ver mis descuentos</a>
+
+        <!-- Aviso de uso -->
+        <div class="banner">
+          💳 <strong>¿Cómo usar tu tarjeta?</strong> Presenta tu Tarjeta Joven física en el establecimiento al momento de pagar para obtener tu descuento.
+        </div>
+
+      </div>
+
+      <!-- Bottom nav -->
+      <div class="bnav">
+        <a href="05-catalogo-auth.html" class="bnav-item">
+          <div class="bnav-icon"></div>
+          <span>Descuentos</span>
+        </a>
+        <a href="04-perfil-joven.html" class="bnav-item active">
+          <div class="bnav-icon"></div>
+          <span>Mi Tarjeta</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="annot">
+    <strong>Notas UX:</strong> La tarjeta visual (gradiente azul) es el elemento central — da identidad y pertenencia al programa.
+    El ID de tarjeta (TJ-2026-00847) es el número que el joven mostrará junto con su tarjeta física.
+    Solo 2 secciones en el bottom nav: <em>Descuentos</em> (catálogo) y <em>Mi Tarjeta</em> (perfil) — MVP intencional sin complejidad extra.
+    El aviso de "cómo usar" está siempre visible para reducir dudas en punto de venta.
+  </div>
+</div>
+</body>
+</html>

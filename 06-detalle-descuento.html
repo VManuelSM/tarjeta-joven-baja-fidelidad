@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>06 · Detalle Descuento — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <a href="05-catalogo-auth.html">05 Catálogo</a>
+  <a href="06-detalle-descuento.html" class="current">06 Detalle Descuento</a>
+  <span class="topnav-sep">|</span>
+  <a href="04-perfil-joven.html">04 Perfil</a>
+</nav>
+
+<div class="page">
+  <div class="page-title-bar">
+    <span class="page-label">06 · Detalle del descuento</span>
+  </div>
+
+  <div class="device">
+    <div class="screen">
+      <div class="sbar"></div>
+
+      <div class="navbar">
+        <a href="05-catalogo-auth.html" class="back-btn">←</a>
+        <span class="nav-title">Detalle</span>
+        <a href="#" class="nav-action" style="font-size:18px;">↑</a>
+      </div>
+
+      <div class="content np">
+        <!-- Imagen del comercio -->
+        <div style="height:180px;background:var(--ph);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:1px;">Imagen del comercio</div>
+
+        <div style="padding:16px;">
+
+          <!-- Header -->
+          <div class="flex items-center gap-12 mb-16">
+            <div style="width:52px;height:52px;border-radius:12px;background:var(--ph);flex-shrink:0;"></div>
+            <div>
+              <div style="font-size:17px;font-weight:800;">Farmacia San Rafael</div>
+              <div class="flex items-center gap-8 mt-4">
+                <span class="badge b-brand">Salud</span>
+                <span class="text-xs text-muted">Pachuca de Soto</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Descuento destacado -->
+          <div style="background:var(--brand);border-radius:14px;padding:20px;text-align:center;color:white;margin-bottom:16px;">
+            <div style="font-size:42px;font-weight:800;line-height:1;">20%</div>
+            <div style="font-size:15px;opacity:.85;margin-top:4px;">de descuento</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px;">En medicamentos genéricos</div>
+          </div>
+
+          <!-- Cómo usar — elemento MÁS IMPORTANTE -->
+          <div style="background:#FFFBEB;border:2px solid #F5D78A;border-radius:12px;padding:14px;margin-bottom:16px;">
+            <div style="font-size:12px;font-weight:800;color:var(--pend-txt);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">💳 ¿Cómo usar este descuento?</div>
+            <div style="font-size:14px;color:var(--text);font-weight:500;">Presenta tu <strong>Tarjeta Joven física</strong> al cajero al momento de pagar. El descuento se aplica directamente.</div>
+          </div>
+
+          <!-- Info del descuento -->
+          <div class="card card-pad mb-16">
+            <div class="stitle">Condiciones</div>
+            <div class="ir">
+              <span class="ir-lbl">Vigencia</span>
+              <span class="ir-val">1 Jun – 31 Dic 2026</span>
+            </div>
+            <div class="ir">
+              <span class="ir-lbl">Días válidos</span>
+              <span class="ir-val">Lunes a viernes</span>
+            </div>
+            <div class="ir">
+              <span class="ir-lbl">Horario</span>
+              <span class="ir-val">8:00 AM – 8:00 PM</span>
+            </div>
+            <div class="ir">
+              <span class="ir-lbl">Aplica en</span>
+              <span class="ir-val">Medicamentos genéricos</span>
+            </div>
+            <div class="ir">
+              <span class="ir-lbl">No aplica en</span>
+              <span class="ir-val">Productos de higiene personal</span>
+            </div>
+            <div class="ir">
+              <span class="ir-lbl">Combinable</span>
+              <span class="ir-val">No combinable con otras promociones</span>
+            </div>
+          </div>
+
+          <!-- Dirección -->
+          <div class="card card-pad mb-16">
+            <div class="stitle">Dónde encontrarlo</div>
+            <div class="ir">
+              <span class="ir-lbl">Dirección</span>
+              <span class="ir-val text-sm">Av. Juárez 245, Col. Centro, Pachuca</span>
+            </div>
+            <div class="ir">
+              <span class="ir-lbl">Municipio</span>
+              <span class="ir-val">Pachuca de Soto</span>
+            </div>
+            <div style="margin-top:12px;background:var(--ph);height:120px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--text-3);">Mapa — versión futura</div>
+          </div>
+
+          <!-- Otros descuentos del mismo comercio -->
+          <div class="stitle">Más de Farmacia San Rafael</div>
+          <div class="li">
+            <div class="li-thumb"></div>
+            <div class="li-body">
+              <div class="li-title">10% en vitaminas y suplementos</div>
+              <div class="li-sub">Salud · Todo el año</div>
+            </div>
+            <a href="#" style="font-size:12px;color:var(--brand);font-weight:700;text-decoration:none;white-space:nowrap;">Ver →</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom nav -->
+      <div class="bnav">
+        <a href="05-catalogo-auth.html" class="bnav-item active">
+          <div class="bnav-icon"></div>
+          <span>Descuentos</span>
+        </a>
+        <a href="04-perfil-joven.html" class="bnav-item">
+          <div class="bnav-icon"></div>
+          <span>Mi Tarjeta</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="annot">
+    <strong>Notas UX:</strong> El elemento más prominente es el descuento (número grande en azul) — lo que el joven quiere saber primero.
+    El cuadro amarillo "¿Cómo usar?" tiene borde destacado porque en MVP el canje es con tarjeta física — es la instrucción más crítica.
+    Las condiciones completas están debajo para quienes necesiten más detalle sin interferir con el flujo principal.
+    "Más descuentos del mismo comercio" favorece exploración sin volver al catálogo.
+  </div>
+</div>
+</body>
+</html>

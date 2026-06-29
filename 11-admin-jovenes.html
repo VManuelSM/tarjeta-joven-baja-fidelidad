@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>11 · Admin Jóvenes — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>body { background: #F0F2F5; }</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Admin IHJ:</span>
+  <a href="10-admin-dashboard.html">10 Dashboard</a>
+  <a href="11-admin-jovenes.html" class="current">11 Jóvenes</a>
+  <a href="12-admin-comercios.html">12 Comercios</a>
+  <a href="13-admin-descuentos.html">13 Descuentos</a>
+</nav>
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="sb-brand">
+      <div class="sb-brand-name">Tarjeta Joven</div>
+      <div class="sb-brand-sub">Panel IHJ · Administrador</div>
+    </div>
+    <nav class="sb-nav">
+      <div class="sb-section">Principal</div>
+      <a href="10-admin-dashboard.html" class="sb-item"><div class="sb-ico"></div>Dashboard</a>
+      <div class="sb-section">Moderación</div>
+      <a href="11-admin-jovenes.html" class="sb-item active">
+        <div class="sb-ico"></div>Jóvenes
+        <span style="margin-left:auto;background:var(--warn);color:white;border-radius:10px;padding:1px 7px;font-size:11px;font-weight:700;">12</span>
+      </a>
+      <a href="12-admin-comercios.html" class="sb-item">
+        <div class="sb-ico"></div>Comercios
+        <span style="margin-left:auto;background:var(--warn);color:white;border-radius:10px;padding:1px 7px;font-size:11px;font-weight:700;">4</span>
+      </a>
+      <a href="13-admin-descuentos.html" class="sb-item">
+        <div class="sb-ico"></div>Descuentos
+        <span style="margin-left:auto;background:var(--warn);color:white;border-radius:10px;padding:1px 7px;font-size:11px;font-weight:700;">7</span>
+      </a>
+      <div class="sb-section">Configuración</div>
+      <a href="#" class="sb-item"><div class="sb-ico"></div>Categorías</a>
+      <a href="#" class="sb-item"><div class="sb-ico"></div>Administradores</a>
+    </nav>
+    <div style="padding:16px 18px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(255,255,255,0.5);">
+      Ana Torres · IHJ<br>
+      <a href="#" style="color:rgba(255,255,255,0.4);font-size:11px;text-decoration:none;">Cerrar sesión</a>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div class="admin-topbar-title">Jóvenes registrados</div>
+      <span style="font-size:13px;color:var(--text-2);">1,847 en total · <strong style="color:var(--warn);">12 pendientes</strong></span>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- Filters -->
+      <div class="filters">
+        <select class="fsel">
+          <option>Todos los estados</option>
+          <option>Pendientes</option>
+          <option selected>Activos</option>
+          <option>Inactivos</option>
+          <option>Rechazados</option>
+        </select>
+        <select class="fsel">
+          <option>Todos los municipios</option>
+          <option>Pachuca de Soto</option>
+          <option>Tulancingo</option>
+          <option>Tizayuca</option>
+          <option>Actopan</option>
+        </select>
+        <input class="fsearch" placeholder="Buscar por nombre, CURP o folio..." />
+        <button class="btn btn-sm btn-primary" style="white-space:nowrap;">Buscar</button>
+      </div>
+
+      <!-- Table -->
+      <div class="atw">
+        <div class="atw-hdr">
+          <h3>Jóvenes</h3>
+          <button class="btn btn-sm" style="background:var(--ph);color:var(--text-2);border:none;font-size:12px;">Exportar CSV</button>
+        </div>
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Joven</th>
+              <th>CURP</th>
+              <th>Municipio</th>
+              <th>Fecha de registro</th>
+              <th>Folio</th>
+              <th>Estatus</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div class="td-avatar"></div>
+                  <div>
+                    <div style="font-weight:600;">Carlos Méndez Ramírez</div>
+                    <div class="text-xs text-muted">carlos.mendez@gmail.com</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-family:monospace;font-size:12px;">MERC031218HHGRZR01</td>
+              <td>Pachuca de Soto</td>
+              <td>24 jun 2026</td>
+              <td style="font-family:monospace;">TJ-2026-01204</td>
+              <td><span class="badge b-pend">Pendiente</span></td>
+              <td>
+                <div class="td-actions">
+                  <button class="btn btn-xs btn-ok">✓ Aprobar</button>
+                  <button class="btn btn-xs btn-danger">✗ Rechazar</button>
+                  <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Ver</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div class="td-avatar"></div>
+                  <div>
+                    <div style="font-weight:600;">María González López</div>
+                    <div class="text-xs text-muted">m.gonzalez@correo.com</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-family:monospace;font-size:12px;">GOLM020514MHGRZR02</td>
+              <td>Pachuca de Soto</td>
+              <td>10 jun 2026</td>
+              <td style="font-family:monospace;">TJ-2026-00847</td>
+              <td><span class="badge b-ok">Activa</span></td>
+              <td>
+                <div class="td-actions">
+                  <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Ver</button>
+                  <button class="btn btn-xs btn-danger">Desactivar</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div class="td-avatar"></div>
+                  <div>
+                    <div style="font-weight:600;">Sofía Pérez Martínez</div>
+                    <div class="text-xs text-muted">sofia.perez@outlook.com</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-family:monospace;font-size:12px;">PEMS040812MHGRZR05</td>
+              <td>Tulancingo</td>
+              <td>22 jun 2026</td>
+              <td style="font-family:monospace;">TJ-2026-01198</td>
+              <td><span class="badge b-pend">Pendiente</span></td>
+              <td>
+                <div class="td-actions">
+                  <button class="btn btn-xs btn-ok">✓ Aprobar</button>
+                  <button class="btn btn-xs btn-danger">✗ Rechazar</button>
+                  <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Ver</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div class="td-avatar"></div>
+                  <div>
+                    <div style="font-weight:600;">Diego Torres Alvarado</div>
+                    <div class="text-xs text-muted">diegoalv@gmail.com</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-family:monospace;font-size:12px;">TOAD050320HHGRZR03</td>
+              <td>Tizayuca</td>
+              <td>20 jun 2026</td>
+              <td style="font-family:monospace;">TJ-2026-01156</td>
+              <td><span class="badge b-rej">Rechazado</span></td>
+              <td>
+                <div class="td-actions">
+                  <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Ver motivo</button>
+                  <button class="btn btn-xs btn-ok">Reactivar</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div class="td-avatar"></div>
+                  <div>
+                    <div style="font-weight:600;">Andrea Luna Fuentes</div>
+                    <div class="text-xs text-muted">andrea.luna@gmail.com</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-family:monospace;font-size:12px;">LUFA030929MHGRZR07</td>
+              <td>Actopan</td>
+              <td>8 jun 2026</td>
+              <td style="font-family:monospace;">TJ-2026-00812</td>
+              <td><span class="badge b-ok">Activa</span></td>
+              <td>
+                <div class="td-actions">
+                  <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Ver</button>
+                  <button class="btn btn-xs btn-danger">Desactivar</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Pagination -->
+        <div style="padding:14px 20px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);">
+          <span class="text-sm text-muted">Mostrando 1–5 de 1,847</span>
+          <div style="display:flex;gap:6px;">
+            <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">← Anterior</button>
+            <button class="btn btn-xs btn-primary">1</button>
+            <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">2</button>
+            <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">3</button>
+            <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Siguiente →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nota de diseño -->
+      <div class="annot" style="max-width:100%;margin-top:0;">
+        <strong>Notas UX (admin):</strong> Los botones de aprobar/rechazar están inline en la tabla para acciones rápidas.
+        El botón "Ver" abre un modal con todos los datos del joven (CURP, foto, municipio) antes de aprobar.
+        Al rechazar, el sistema solicita un motivo obligatorio que se envía por correo al joven.
+        El filtro "Pendientes" debe ser la vista por defecto para que el admin siempre vea primero lo que necesita acción.
+      </div>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>

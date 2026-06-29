@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>12 · Admin Comercios — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>body { background: #F0F2F5; }</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <span class="topnav-label">Admin IHJ:</span>
+  <a href="10-admin-dashboard.html">10 Dashboard</a>
+  <a href="11-admin-jovenes.html">11 Jóvenes</a>
+  <a href="12-admin-comercios.html" class="current">12 Comercios</a>
+  <a href="13-admin-descuentos.html">13 Descuentos</a>
+</nav>
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="sb-brand">
+      <div class="sb-brand-name">Tarjeta Joven</div>
+      <div class="sb-brand-sub">Panel IHJ · Administrador</div>
+    </div>
+    <nav class="sb-nav">
+      <div class="sb-section">Principal</div>
+      <a href="10-admin-dashboard.html" class="sb-item"><div class="sb-ico"></div>Dashboard</a>
+      <div class="sb-section">Moderación</div>
+      <a href="11-admin-jovenes.html" class="sb-item">
+        <div class="sb-ico"></div>Jóvenes
+        <span style="margin-left:auto;background:var(--warn);color:white;border-radius:10px;padding:1px 7px;font-size:11px;font-weight:700;">12</span>
+      </a>
+      <a href="12-admin-comercios.html" class="sb-item active">
+        <div class="sb-ico"></div>Comercios
+        <span style="margin-left:auto;background:var(--warn);color:white;border-radius:10px;padding:1px 7px;font-size:11px;font-weight:700;">4</span>
+      </a>
+      <a href="13-admin-descuentos.html" class="sb-item">
+        <div class="sb-ico"></div>Descuentos
+        <span style="margin-left:auto;background:var(--warn);color:white;border-radius:10px;padding:1px 7px;font-size:11px;font-weight:700;">7</span>
+      </a>
+      <div class="sb-section">Configuración</div>
+      <a href="#" class="sb-item"><div class="sb-ico"></div>Categorías</a>
+      <a href="#" class="sb-item"><div class="sb-ico"></div>Administradores</a>
+    </nav>
+    <div style="padding:16px 18px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(255,255,255,0.5);">
+      Ana Torres · IHJ
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div class="admin-topbar-title">Comercios afiliados</div>
+      <span style="font-size:13px;color:var(--text-2);">78 en total · <strong style="color:var(--warn);">4 pendientes</strong></span>
+    </div>
+
+    <div class="admin-content">
+
+      <div class="filters">
+        <select class="fsel">
+          <option>Todos los estados</option>
+          <option selected>Pendientes</option>
+          <option>Activos</option>
+          <option>Inactivos</option>
+          <option>Rechazados</option>
+        </select>
+        <select class="fsel">
+          <option>Todas las categorías</option>
+          <option>Alimentación</option>
+          <option>Salud</option>
+          <option>Educación</option>
+          <option>Cultura</option>
+          <option>Recreación</option>
+          <option>Servicios personales</option>
+          <option>Innovación</option>
+        </select>
+        <select class="fsel">
+          <option>Todos los municipios</option>
+          <option>Pachuca de Soto</option>
+          <option>Tulancingo</option>
+          <option>Tizayuca</option>
+        </select>
+        <input class="fsearch" placeholder="Buscar por nombre o RFC..." />
+      </div>
+
+      <div class="atw">
+        <div class="atw-hdr">
+          <h3>Comercios</h3>
+          <button class="btn btn-sm" style="background:var(--ph);color:var(--text-2);border:none;font-size:12px;">Exportar CSV</button>
+        </div>
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Negocio</th>
+              <th>RFC</th>
+              <th>Categoría</th>
+              <th>Municipio</th>
+              <th>Fecha solicitud</th>
+              <th>Descuentos</th>
+              <th>Estatus</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:34px;height:34px;border-radius:8px;background:var(--ph);flex-shrink:0;"></div>
+                  <div>
+                    <div style="font-weight:600;">Café 501</div>
+                    <div class="text-xs text-muted">cafe501@gmail.com</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-family:monospace;font-size:12px;">ROGS920410XY5</td>
+              <td><span class="badge b-brand">Alimentación</span></td>
+              <td>Pachuca</td>
+              <td>25 jun 2026</td>
+              <td style="text-align:center;">—</td>
+              <td><span class="badge b-pend">Pendiente</span></td>
+              <td>
+                <div class="td-actions">
+                  <button class="btn btn-xs btn-ok">✓ Aprobar</button>
+                  <button class="btn btn-xs btn-danger">✗ Rechazar</button>
+                  <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Ver</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:34px;height:34px;border-radius:8px;background:var(--ph);flex-shrink:0;"></div>
+                  <div>
+                    <div style="font-weight:600;">Farmacia San Rafael</div>
+                    <div class="text-xs text-muted">farmacia.sanrafael@gmail.com</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-family:monospace;font-size:12px;">SARR880214JS9</td>
+              <td><span class="badge b-brand">Salud</span></td>
+              <td>Pachuca</td>
+              <td>1 jun 2026</td>
+              <td style="text-align:center;font-weight:700;color:var(--brand);">3</td>
+              <td><span class="badge b-ok">Activo</span></td>
+              <td>
+                <div class="td-actions">
+                  <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Ver</button>
+                  <button class="btn btn-xs btn-danger">Desactivar</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:34px;height:34px;border-radius:8px;background:var(--ph);flex-shrink:0;"></div>
+                  <div>
+                    <div style="font-weight:600;">GymFit Pachuca</div>
+                    <div class="text-xs text-muted">gymfit.pachuca@gmail.com</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-family:monospace;font-size:12px;">GFPA910715KZ8</td>
+              <td><span class="badge b-brand">Salud</span></td>
+              <td>Pachuca</td>
+              <td>23 jun 2026</td>
+              <td style="text-align:center;">—</td>
+              <td><span class="badge b-pend">Pendiente</span></td>
+              <td>
+                <div class="td-actions">
+                  <button class="btn btn-xs btn-ok">✓ Aprobar</button>
+                  <button class="btn btn-xs btn-danger">✗ Rechazar</button>
+                  <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Ver</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:34px;height:34px;border-radius:8px;background:var(--ph);flex-shrink:0;"></div>
+                  <div>
+                    <div style="font-weight:600;">Librería El Estudiante</div>
+                    <div class="text-xs text-muted">libreria.est@gmail.com</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-family:monospace;font-size:12px;">LESA750302MH1</td>
+              <td><span class="badge b-brand">Educación</span></td>
+              <td>Tulancingo</td>
+              <td>5 jun 2026</td>
+              <td style="text-align:center;font-weight:700;color:var(--brand);">2</td>
+              <td><span class="badge b-ok">Activo</span></td>
+              <td>
+                <div class="td-actions">
+                  <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Ver</button>
+                  <button class="btn btn-xs btn-danger">Desactivar</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding:14px 20px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);">
+          <span class="text-sm text-muted">Mostrando 1–4 de 78</span>
+          <div style="display:flex;gap:6px;">
+            <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">← Anterior</button>
+            <button class="btn btn-xs btn-primary">1</button>
+            <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">2</button>
+            <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Siguiente →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="annot" style="max-width:100%;margin-top:0;">
+        <strong>Notas UX (admin):</strong> La columna "Descuentos" muestra cuántos descuentos tiene publicados ese comercio — útil para detectar comercios activos pero sin beneficios.
+        Al aprobar un comercio, el sistema le envía un correo de bienvenida con instrucciones para subir descuentos.
+        Al rechazar, se solicita motivo que se comunica al comercio.
+        Un comercio rechazado puede corregir sus datos y re-solicitar afiliación.
+      </div>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>08 · Dashboard Comercio — Tarjeta Joven Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="topnav">
+  <a href="index.html">← Inicio</a>
+  <span class="topnav-sep">|</span>
+  <a href="07-registro-comercio.html">07 Registro</a>
+  <a href="08-dashboard-comercio.html" class="current">08 Dashboard Comercio</a>
+  <a href="09-alta-descuento.html">09 Alta Descuento</a>
+  <span class="topnav-sep">|</span>
+  <a href="12-admin-comercios.html">12 Admin Comercios</a>
+  <a href="13-admin-descuentos.html">13 Admin Descuentos</a>
+</nav>
+
+<div class="page">
+  <div class="page-title-bar">
+    <span class="page-label">08 · Dashboard del comercio (autenticado)</span>
+  </div>
+
+  <div class="device">
+    <div class="screen">
+      <div class="sbar dark"></div>
+
+      <div class="navbar brand">
+        <span class="nav-logo">TARJETA JOVEN</span>
+        <div class="nav-spacer"></div>
+        <a href="#" class="nav-action">Salir</a>
+      </div>
+
+      <div class="content">
+
+        <!-- Bienvenida + estado -->
+        <div class="flex items-center gap-12 mb-20">
+          <div style="width:52px;height:52px;border-radius:12px;background:var(--ph);flex-shrink:0;"></div>
+          <div style="flex:1;">
+            <div style="font-size:16px;font-weight:800;">Farmacia San Rafael</div>
+            <div class="flex items-center gap-8 mt-4">
+              <span class="badge b-ok">✓ Verificado</span>
+              <span class="text-xs text-muted">Salud · Pachuca</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-n">3</div>
+            <div class="stat-l">Descuentos activos</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n" style="color:var(--warn);">1</div>
+            <div class="stat-l">Pendiente de revisión</div>
+          </div>
+        </div>
+
+        <!-- CTA agregar -->
+        <a href="09-alta-descuento.html" class="btn btn-primary mb-20">+ Agregar descuento</a>
+
+        <!-- Lista de descuentos -->
+        <div class="stitle">Mis descuentos</div>
+
+        <!-- Descuento 1 — Activo -->
+        <div class="card mb-12">
+          <div class="card-pad" style="padding-bottom:10px;">
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge b-ok">Activo</span>
+              <span class="text-xs text-muted">Publicado 10 jun 2026</span>
+            </div>
+            <div style="font-size:15px;font-weight:700;margin-bottom:2px;">20% en medicamentos genéricos</div>
+            <div class="text-sm text-muted mb-8">Salud · Vigencia: 1 Jun – 31 Dic 2026</div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;">
+            <a href="06-detalle-descuento.html" class="btn btn-outline btn-xs">Ver en catálogo</a>
+            <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Editar</button>
+          </div>
+        </div>
+
+        <!-- Descuento 2 — Activo -->
+        <div class="card mb-12">
+          <div class="card-pad" style="padding-bottom:10px;">
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge b-ok">Activo</span>
+              <span class="text-xs text-muted">Publicado 10 jun 2026</span>
+            </div>
+            <div style="font-size:15px;font-weight:700;margin-bottom:2px;">10% en vitaminas y suplementos</div>
+            <div class="text-sm text-muted mb-8">Salud · Vigencia: Todo el año</div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;">
+            <a href="06-detalle-descuento.html" class="btn btn-outline btn-xs">Ver en catálogo</a>
+            <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Editar</button>
+          </div>
+        </div>
+
+        <!-- Descuento 3 — Pendiente -->
+        <div class="card mb-12">
+          <div class="card-pad" style="padding-bottom:10px;">
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge b-pend">⏳ En revisión</span>
+              <span class="text-xs text-muted">Enviado hoy</span>
+            </div>
+            <div style="font-size:15px;font-weight:700;margin-bottom:2px;">15% en artículos de higiene</div>
+            <div class="text-sm text-muted mb-8">Salud · El IHJ lo revisará en los próximos días</div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;">
+            <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Ver detalles</button>
+          </div>
+        </div>
+
+        <!-- Descuento 4 — Rechazado -->
+        <div class="card mb-20">
+          <div class="card-pad" style="padding-bottom:10px;">
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge b-rej">✗ Rechazado</span>
+              <span class="text-xs text-muted">Revisado 8 jun 2026</span>
+            </div>
+            <div style="font-size:15px;font-weight:700;margin-bottom:2px;">50% en productos importados</div>
+            <div class="text-sm text-muted mb-8">Motivo: El descuento no aplica a productos importados según convenio.</div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;">
+            <a href="09-alta-descuento.html" class="btn btn-outline btn-xs">Volver a enviar</a>
+          </div>
+        </div>
+
+        <!-- Perfil del negocio -->
+        <div class="divider"></div>
+        <div class="stitle">Mi negocio</div>
+        <div class="card card-pad">
+          <div class="ir"><span class="ir-lbl">RFC</span><span class="ir-val" style="font-family:monospace;font-size:13px;">SARR880214JS9</span></div>
+          <div class="ir"><span class="ir-lbl">Municipio</span><span class="ir-val">Pachuca de Soto</span></div>
+          <div class="ir"><span class="ir-lbl">Responsable</span><span class="ir-val">Rafael Sánchez Ruiz</span></div>
+          <div class="ir"><span class="ir-lbl">Correo</span><span class="ir-val text-sm">farmacia.sanrafael@gmail.com</span></div>
+          <div style="margin-top:12px;">
+            <button class="btn btn-xs" style="background:var(--ph);color:var(--text-2);border:none;">Editar perfil del negocio</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom nav -->
+      <div class="bnav">
+        <a href="08-dashboard-comercio.html" class="bnav-item active">
+          <div class="bnav-icon"></div>
+          <span>Mis Descuentos</span>
+        </a>
+        <a href="#" class="bnav-item">
+          <div class="bnav-icon"></div>
+          <span>Mi Negocio</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="annot">
+    <strong>Notas UX:</strong> Se muestran los 4 estados posibles de un descuento: Activo, Pendiente de revisión, Rechazado — y el flujo natural para re-enviar si fue rechazado.
+    El estado "Rechazado" incluye el motivo para que el comercio pueda corregir y re-someter.
+    El botón "+ Agregar descuento" es el CTA principal — visible inmediatamente arriba de la lista.
+    El bottom nav tiene 2 secciones: <em>Mis Descuentos</em> (lista) y <em>Mi Negocio</em> (perfil/datos) — espejo del nav del joven.
+  </div>
+</div>
+</body>
+</html>
